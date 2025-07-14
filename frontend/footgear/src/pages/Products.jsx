@@ -1,7 +1,6 @@
 import { ProductSection } from "../components/ProductSection";
 import { useBrands } from "../contexts/BrandsContext";
 import { useProducts } from "../contexts/ProductsContext";
-import "../styles/store.css";
 
 export function Products() {
   const { brands,getBrandId,isLoading : brandsLoading,error:brandsError} = useBrands()
@@ -22,7 +21,7 @@ export function Products() {
             <>
             <div className="products-hero">
               <img
-                className="products-hero__img"
+                className="mt-24 max-w-full h-auto"
                 src={"/img/nike-banner.jpg"}
                 ></img>
             </div>
@@ -36,7 +35,7 @@ export function Products() {
             <>
             <div className="products-hero">
               <img
-                className="products-hero__img"
+                className="mt-24 max-w-full h-auto"
                 src={"/img/adidas-banner.jpg"}
               ></img>
             </div>
@@ -50,7 +49,7 @@ export function Products() {
             <>
           <div className="products-hero">
             <img
-              className="products-hero__img"
+              className="mt-24 max-w-full h-auto"
               src={"/img/puma-banner.jpg"}
               />
           </div>

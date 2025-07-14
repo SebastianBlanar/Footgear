@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import { ProductCardComponent } from "./ProductCardComponent";
 import { useProducts } from "../contexts/ProductsContext";
 
 export function ProductDetails(){

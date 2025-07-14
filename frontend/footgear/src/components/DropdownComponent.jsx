@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "../styles/store.css";
 import { useProducts } from "../contexts/ProductsContext";
 import { useBrands } from "../contexts/BrandsContext";
 
@@ -7,7 +6,7 @@ export function DropdownComponent() {
   const [isActive, setIsActive] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const { setProducts, allProducts } = useProducts();
-  const { brands,getBrandId } = useBrands() 
+  const { brands, getBrandId } = useBrands();
   useEffect(() => {
     if (selectedValue === "") return;
     if (["nike", "adidas", "puma"].includes(selectedValue)) {
@@ -32,7 +31,6 @@ export function DropdownComponent() {
       setProducts([...allProducts].sort((a, b) => a.price - b.price));
     if (selectedValue === "desc")
       setProducts([...allProducts].sort((a, b) => b.price - a.price));
-
   }, [selectedValue, setProducts, allProducts]);
 
   function handleChange(event) {
@@ -44,18 +42,30 @@ export function DropdownComponent() {
   };
 
   return (
-    <div className="dropdown">
-      <div id="filterButton" className="filter-button" onClick={handleClick}>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <div className="relative">
+      <button
+        id="filterButton"
+        onClick={handleClick}
+        className="bg-orange-400 p-2 rounded ml-6 hover:bg-orange-500"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          className="h-6 w-6 fill-current"
+        >
           <path d="M3 4c0-.6.4-1 1-1h16c.6 0 1 .4 1 1 0 .1 0 .3-.1.4L14 12.3v6.8c0 .6-.4 1-1 1-.1 0-.3 0-.4-.1l-3-2c-.3-.2-.6-.5-.6-.9v-4.8L3.1 4.4C3 4.3 3 4.1 3 4z" />
         </svg>
-      </div>
+      </button>
 
       <select
-        className={`dropdown-menu information-grid ${isActive && "active"}`}
         id="select"
         value={selectedValue}
         onChange={handleChange}
+        className={`absolute left-0 mt-1 bg-white rounded shadow-md p-3 transition-all duration-150 text-black text-sm z-50 ${
+          isActive
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-2 pointer-events-none"
+        }`}
       >
         <optgroup label="Marcas">
           <option value="todas">Todas</option>
