@@ -1,0 +1,40 @@
+{
+  "id": 76,
+  "name": "Nike SB Dunk High",
+  "price": 120,
+  "category": "running",
+  "brand": "Nike",
+  "stock": [
+    {
+      "color": "white",
+      "size": 37,
+      "quantity": 7
+    },
+    {
+      "color": "white",
+      "size": 38,
+      "quantity": 6
+    },
+    {
+      "color": "white",
+      "size": 39,
+      "quantity": 5
+    },
+    {
+      "color": "white",
+      "size": 40,
+      "quantity": 7
+    },
+    {
+      "color": "white",
+      "size": 41,
+      "quantity": 6
+    },
+    {
+      "color": "white",
+      "size": 42,
+      "quantity": 6
+    }
+  ],
+  "image": "./img/nike_sb-dunk-high.png"
+}

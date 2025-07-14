@@ -1,0 +1,18 @@
+{
+  "white": [
+    {
+      "size": 37,
+      "quantity": 9
+    },
+    {
+      "size": 38,
+      "quantity": 20
+    }
+  ],
+  "black": [
+    {
+      "size": 40,
+      "quantity": 5
+    }
+  ]
+}

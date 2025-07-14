@@ -1,0 +1,127 @@
+### PRODUCTOS
+
+### Recuperar todos los productos
+GET http://localhost:1234/products
+
+### Recuperar un producto por id
+GET http://localhost:1234/products/9359e380-bb39-46aa-ba6b-bdaf42a2be5f
+
+### Recuperar todos los productos por una categoria
+GET http://localhost:1234/products?category=running&brand=nike
+
+### Crear un producto con POST
+POST http://localhost:1234/products
+Content-Type: application/json
+
+
+{
+    "name": "Adidas Alphaboost",
+    "price": 145,
+    "brand": "Adidas",
+    "image": "https://i.postimg.cc/cJTgYx0H/adidas-alphaboost-v1.png",
+    "stock": {
+      "gray": [
+        {
+          "size": 37,
+          "quantity": 3
+        },
+        {
+          "size": 41,
+          "quantity": 6
+        }
+      ],
+      "white": [
+        {
+          "size": 38,
+          "quantity": 7
+        }
+      ],
+      "green": [
+        {
+          "size": 39,
+          "quantity": 3
+        }
+      ],
+      "blue": [
+        {
+          "size": 40,
+          "quantity": 3
+        }
+      ],
+      "red": [
+        {
+          "size": 42,
+          "quantity": 3
+        }
+      ]
+    },
+    "category": "sportswear"
+  }
+  
+### Actualizar un producto
+PATCH http://localhost:1234/products/7119fe6f-3066-43d5-9a7b-ebddfe27c21c
+Content-Type: application/json
+
+{
+  "image" : "https://ik.imagekit.io/footgear/img/adidas-gazelle-indoor.png?updatedAt=1752276459631" 
+}
+
+### eliminar un producto
+DELETE http://localhost:1234/products/bc4cf161-657c-4eb7-99e6-f64e402fe9d9
+
+### MARCAS
+
+
+### Obtener las marcas
+GET http://localhost:1234/brands/
+
+### Obtener una marca
+GET http://localhost:1234/brands/5
+
+### Borrar una marca
+DELETE http://localhost:1234/brands/11
+
+### Crear una marca 
+POST http://localhost:1234/brands/
+Content-Type: application/json
+
+{
+  "name" : "adidas"
+}
+
+### Actualizar una marca 
+patch http://localhost:1234/brands/5
+Content-Type: application3/json
+
+{
+  "name" : "adidas"
+}
+
+
+### CATEGORIAS
+
+
+### Obtener las categorias
+GET http://localhost:1234/categories/
+
+### Obtener una categoria
+GET http://localhost:1234/categories/2
+
+### Borrar una categoria
+DELETE http://localhost:1234/categories/4
+
+### Crear una categoria 
+POST http://localhost:1234/categories/
+Content-Type: application/json
+
+{
+  "name": "urban"
+}
+
+### Actualizar una categoria 
+PATCH http://localhost:1234/categories/2
+Content-Type: application/json
+
+{
+  "name" : "running"
+}
