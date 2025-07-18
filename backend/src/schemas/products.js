@@ -4,10 +4,6 @@ const StockItemSchema = z.object({
   size: z.number().int().gte(30).lte(50),
   quantity: z.number().int().nonnegative()
 })
-const StockSchema = z.record(
-  z.string().min(1, 'Color name cannot be empty'),
-  z.array(StockItemSchema).min(1, 'Each color must have at least one size')
-)
 
 const productsSchema = z.object({
     name : z.string({
@@ -21,7 +17,7 @@ const productsSchema = z.object({
       required_error : "Product image is a required field",
       invalid_type_error : "The product image must be a valid URL"
     }),
-    stock : StockSchema
+    stock : z.array(StockItemSchema)
   })
 
 export function validateProduct( input ){

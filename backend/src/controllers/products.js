@@ -8,7 +8,7 @@ export class ProductController {
   getAll = async (req, res) => {
     const { category, brand } = req.query
     const products = await this.productsModel.getAll({ category, brand })
-    if (products == false) return res.status(400).json({ error: "Category or brand not found" })
+    if (products == false) return res.status(400).json({ error: "Products not found" })
     return res.status(200).json(products)
   }
   getById = async (req, res) => {

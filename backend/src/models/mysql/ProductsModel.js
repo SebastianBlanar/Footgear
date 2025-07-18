@@ -70,46 +70,25 @@ export class ProductsModel {
       if (rows.affectedRows !== 1) {
         throw new Error('Error inserting the product')
       }
+      await createProductStock({ input, product_id, connection })
 
       return {
         id: product_id,
         ...input
       }
     }
-
-    const createProductVariant = async ({ input, product_id, connection }) => {
-      const colors = Object.keys(input.stock)
-
-      for (const color of colors) {
-        const variant_id = randomUUID()
-
-        const [variantResult] = await connection.query(
-          "INSERT INTO product_variant (id, product_id, color) VALUES (UUID_TO_BIN(?), UUID_TO_BIN(?), ?)",
-          [variant_id, product_id, normalizeString(color)]
-        )
-
-        if (variantResult.affectedRows !== 1) {
-          throw new Error(`Error inserting product_variant for color "${color}"`)
-        }
-        await createVariantStock({ input, color, variant_id, connection })
-      }
-    }
-
-    const createVariantStock = async ({ input, color, variant_id, connection }) => {
-      const stockItems = input.stock[color]
-
-      for (const { size, quantity } of stockItems) {
-
+    const createProductStock = async ({ input, product_id, connection }) => {
+      for(const {size,quantity} of input.stock){
         const [stockResult] = await connection.query(
-          "INSERT INTO stock (variant_id, size, quantity) VALUES ( UUID_TO_BIN(?), ?, ?)",
-          [variant_id, size, quantity]
+          "INSERT INTO stock (product_id, size, quantity) VALUES ( UUID_TO_BIN(?), ?, ?)",
+          [product_id, size, quantity]
         )
-
+  
         if (stockResult.affectedRows !== 1) {
-          throw new Error(`Error inserting stock for color "${color}", size ${size}`)
+          throw new Error(`Error inserting stock for "${product_id}", size ${size}`)
         }
       }
-    }
+      }
 
     const pool = getConnection()
     const connection = await pool.getConnection()
@@ -117,7 +96,6 @@ export class ProductsModel {
     try {
       await connection.beginTransaction()
       const newProduct = await createProduct({ input, connection })
-      await createProductVariant({ input, product_id: newProduct.id, connection })
       return newProduct
     }
     catch (error) {

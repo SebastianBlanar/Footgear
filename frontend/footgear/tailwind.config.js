@@ -1,12 +1,17 @@
 // tailwind.config.js
-/** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        bg: 'var(--color-bg)',
+        surface: 'var(--color-surface)',
+        text: 'var(--color-text)',
+        muted: 'var(--color-muted)',
+      },
+      fontFamily: {
+        sans: ['var(--font-sans)', 'sans-serif'],
+      },
+    },
   },
-  plugins: [],
-}
+};

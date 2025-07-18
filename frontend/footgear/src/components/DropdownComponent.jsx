@@ -42,7 +42,7 @@ export function DropdownComponent() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative text-black">
       <button
         id="filterButton"
         onClick={handleClick}
@@ -61,7 +61,7 @@ export function DropdownComponent() {
         id="select"
         value={selectedValue}
         onChange={handleChange}
-        className={`absolute left-0 mt-1 bg-white rounded shadow-md p-3 transition-all duration-150 text-black text-sm z-50 ${
+        className={`absolute left-0 mt-12 bg-white rounded shadow-md p-3 transition-all duration-150 text-black text-sm z-50 ${
           isActive
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-2 pointer-events-none"

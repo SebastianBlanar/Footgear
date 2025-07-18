@@ -8,6 +8,7 @@ export function ProductsProvider({ children }) {
   const [isLoading, setIsLoading] = useState([]);
   const [error, setError] = useState(null);
   const getProductById = (id) => products.find((p)=> p.id == id)
+  
 
   useEffect(() => {
     async function fetchProducts() {

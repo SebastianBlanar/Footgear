@@ -21,7 +21,7 @@ export function Products() {
             <>
             <div className="products-hero">
               <img
-                className="mt-24 max-w-full h-auto"
+                className="mt-2 max-w-full h-auto"
                 src={"/img/nike-banner.jpg"}
                 ></img>
             </div>

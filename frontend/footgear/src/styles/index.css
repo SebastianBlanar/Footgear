@@ -3,8 +3,22 @@
 body {
   background: #000;
 }
-
 @theme {
-  --color-primary: #225673;
+    --color-bg: #000;
+    --color-surface: #eeeeee;
+    --color-accent: #0077ff;
+    --font-sans: 'Inter', sans-serif;
+    --color-text: #e0e0e0;
+    --color-muted: #aaaaaa;
+    --color-danger: #e63946;
+    --color-danger-hover: #d62828;
+}
+.dark {
+  @theme {
+  --color-bg: #1a0f0f;
+  --color-surface: #2b1e1e;
+  --color-accent: #ff6900;
+  --color-text: #ffffff;
   --font-sans: 'Inter', sans-serif;
+  }
 }

@@ -59,11 +59,11 @@ Content-Type: application/json
   }
   
 ### Actualizar un producto
-PATCH http://localhost:1234/products/7119fe6f-3066-43d5-9a7b-ebddfe27c21c
+PATCH http://localhost:1234/products/b8bbee29-7abe-4443-9ee3-62f1eb6c2d1c
 Content-Type: application/json
 
 {
-  "image" : "https://ik.imagekit.io/footgear/img/adidas-gazelle-indoor.png?updatedAt=1752276459631" 
+  "image" : "https://ik.imagekit.io/footgear/img/adidas-gazelle-indoor.png?updatedAt=1752701879733" 
 }
 
 ### eliminar un producto
@@ -125,3 +125,6 @@ Content-Type: application/json
 {
   "name" : "running"
 }
+
+### Obtener todos los stocks de un producto
+GET http://localhost:1234/stocks/1c352556-d9fe-4953-89f8-04e77faadc9e

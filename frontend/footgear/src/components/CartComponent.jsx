@@ -1,13 +1,14 @@
 import Swal from "sweetalert2";
 import { useCart } from "../contexts/CartContext";
 import { CartCounterComponent } from "./CartCounterComponent";
+import { useNavigate } from "react-router-dom";
 
 export function CartComponent() {
   const { totalItems } = useCart();
-  
+  let navigate = useNavigate()
   function handleClick() {
     if (totalItems > 0) {
-      location.href = "/checkout";
+      navigate("/cart")
     } else {
       mostrarMensajeCarrito(
         "Primero debe cargar al menos un producto en su carrito",
@@ -31,7 +32,7 @@ export function CartComponent() {
   <div
     id="cart-button"
     onClick={() => handleClick()}
-    className="relative bg-orange-400 rounded p-1 ml-6 cursor-pointer hover:bg-orange-500"
+    className="relative bg-orange-400 rounded p-1 ml-6 cursor-pointer hover:bg-orange-500 text-black"
   >
     <svg
       id="cart-svg"

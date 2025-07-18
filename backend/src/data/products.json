@@ -1,1533 +1,290 @@
 [
   {
-    "name": "Nike SB Dunk High",
-    "price": 120,
-    "brand": "Nike",
-    "image": "https://i.postimg.cc/MZBB38Ys/nike-sb-dunk-high.png",
-    "stock": {
-      "white": [
-        {
-          "size": 37,
-          "quantity": 7
-        }
-      ],
-      "blue": [
-        {
-          "size": 38,
-          "quantity": 6
-        }
-      ],
-      "green": [
-        {
-          "size": 39,
-          "quantity": 5
-        },
-        {
-          "size": 40,
-          "quantity": 7
-        }
-      ],
-      "red": [
-        {
-          "size": 41,
-          "quantity": 6
-        }
-      ],
-      "gray": [
-        {
-          "size": 42,
-          "quantity": 6
-        }
-      ]
-    },
-    "category": "lifestyle"
+    "id": "072fad3a-b2df-47f2-a156-43f876b7b13f",
+    "name": "nike dunk low",
+    "price": "110.00",
+    "image": "https://ik.imagekit.io/footgear/img/nike-dunk-low.png",
+    "category_id": 9,
+    "brand_id": 1
   },
   {
-    "name": "Nike Air Force 1",
-    "price": 110,
-    "brand": "Nike",
-    "image": "https://i.postimg.cc/fTh96g2M/nike-air-force-1.png",
-    "stock": {
-      "green": [
-        {
-          "size": 37,
-          "quantity": 5
-        },
-        {
-          "size": 39,
-          "quantity": 3
-        }
-      ],
-      "red": [
-        {
-          "size": 38,
-          "quantity": 3
-        }
-      ],
-      "white": [
-        {
-          "size": 40,
-          "quantity": 4
-        }
-      ],
-      "black": [
-        {
-          "size": 41,
-          "quantity": 3
-        },
-        {
-          "size": 42,
-          "quantity": 5
-        }
-      ]
-    },
-    "category": "sportswear"
+    "id": "11677274-8b00-40c0-b1f1-3c3a4e280bad",
+    "name": "adidas court jam",
+    "price": "115.00",
+    "image": "https://ik.imagekit.io/footgear/img/adidas-court-jam.png",
+    "category_id": 8,
+    "brand_id": 5
   },
   {
-    "name": "Nike Air Max",
-    "price": 130,
-    "brand": "Nike",
-    "image": "https://i.postimg.cc/cLx8JtGj/nike-air-max.png",
-    "stock": {
-      "blue": [
-        {
-          "size": 37,
-          "quantity": 6
-        }
-      ],
-      "white": [
-        {
-          "size": 38,
-          "quantity": 5
-        },
-        {
-          "size": 41,
-          "quantity": 7
-        }
-      ],
-      "green": [
-        {
-          "size": 39,
-          "quantity": 7
-        }
-      ],
-      "gray": [
-        {
-          "size": 40,
-          "quantity": 7
-        }
-      ],
-      "black": [
-        {
-          "size": 42,
-          "quantity": 3
-        }
-      ]
-    },
-    "category": "sportswear"
+    "id": "144ef3ef-de78-49e4-b307-27206a7f8e60",
+    "name": "nike sb dunk high",
+    "price": "120.00",
+    "image": "https://ik.imagekit.io/footgear/img/nike-sb-dunk-high.png",
+    "category_id": 6,
+    "brand_id": 1
   },
   {
-    "name": "Nike Air Presto",
-    "price": 125,
-    "brand": "Nike",
-    "image": "https://i.postimg.cc/jSMnnqsj/nike-air-presto.png",
-    "stock": {
-      "black": [
-        {
-          "size": 37,
-          "quantity": 5
-        },
-        {
-          "size": 41,
-          "quantity": 5
-        }
-      ],
-      "red": [
-        {
-          "size": 38,
-          "quantity": 3
-        }
-      ],
-      "gray": [
-        {
-          "size": 39,
-          "quantity": 5
-        }
-      ],
-      "blue": [
-        {
-          "size": 40,
-          "quantity": 6
-        },
-        {
-          "size": 42,
-          "quantity": 3
-        }
-      ]
-    },
-    "category": "lifestyle"
+    "id": "2751cd3e-95de-4b26-ab4a-677b259a96b8",
+    "name": "adidas samba og",
+    "price": "105.00",
+    "image": "https://ik.imagekit.io/footgear/img/adidas-samba-og.png",
+    "category_id": 2,
+    "brand_id": 5
   },
   {
-    "name": "Nike Blazer Mid",
-    "price": 115,
-    "brand": "Nike",
-    "image": "https://i.postimg.cc/6QS7zH4J/nike-blazer-mid.png",
-    "stock": {
-      "gray": [
-        {
-          "size": 37,
-          "quantity": 7
-        },
-        {
-          "size": 40,
-          "quantity": 7
-        },
-        {
-          "size": 42,
-          "quantity": 6
-        }
-      ],
-      "blue": [
-        {
-          "size": 38,
-          "quantity": 6
-        },
-        {
-          "size": 41,
-          "quantity": 5
-        }
-      ],
-      "green": [
-        {
-          "size": 39,
-          "quantity": 4
-        }
-      ]
-    },
-    "category": "casual"
+    "id": "369dcf7e-1a35-4689-a3f9-1032690e2110",
+    "name": "adidas swift run 2.0",
+    "price": "115.00",
+    "image": "https://ik.imagekit.io/footgear/img/adidas-swift-run-2.0.png",
+    "category_id": 9,
+    "brand_id": 5
   },
   {
-    "name": "Nike Dunk High Retro",
-    "price": 140,
-    "brand": "Nike",
-    "image": "https://i.postimg.cc/C1qR2jbZ/nike-dunk-high-retro.png",
-    "stock": {
-      "black": [
-        {
-          "size": 37,
-          "quantity": 4
-        }
-      ],
-      "red": [
-        {
-          "size": 38,
-          "quantity": 5
-        },
-        {
-          "size": 41,
-          "quantity": 7
-        }
-      ],
-      "green": [
-        {
-          "size": 39,
-          "quantity": 5
-        },
-        {
-          "size": 42,
-          "quantity": 4
-        }
-      ],
-      "white": [
-        {
-          "size": 40,
-          "quantity": 6
-        }
-      ]
-    },
-    "category": "urban"
+    "id": "37168443-800c-445d-9ea9-0e5aa1a0ecac",
+    "name": "nike kyrie 5",
+    "price": "125.00",
+    "image": "https://ik.imagekit.io/footgear/img/nike-kyrie-5.png",
+    "category_id": 7,
+    "brand_id": 1
   },
   {
-    "name": "Nike Dunk Low",
-    "price": 110,
-    "brand": "Nike",
-    "image": "https://i.postimg.cc/5yWXW6ms/nike-dunk-low.png",
-    "stock": {
-      "red": [
-        {
-          "size": 37,
-          "quantity": 6
-        }
-      ],
-      "black": [
-        {
-          "size": 38,
-          "quantity": 4
-        }
-      ],
-      "green": [
-        {
-          "size": 39,
-          "quantity": 3
-        }
-      ],
-      "blue": [
-        {
-          "size": 40,
-          "quantity": 4
-        }
-      ],
-      "gray": [
-        {
-          "size": 41,
-          "quantity": 7
-        }
-      ],
-      "white": [
-        {
-          "size": 42,
-          "quantity": 6
-        }
-      ]
-    },
-    "category": "basketball"
+    "id": "3ef62bca-2e1f-4a99-97d5-1ff73238765f",
+    "name": "puma training fuse 3.0",
+    "price": "135.00",
+    "image": "https://ik.imagekit.io/footgear/img/puma-training-fuse-3.0.png",
+    "category_id": 5,
+    "brand_id": 10
   },
   {
-    "name": "Nike Ice 3",
-    "price": 135,
-    "brand": "Nike",
-    "image": "https://i.postimg.cc/gjynzmSm/nike-ice-3.png",
-    "stock": {
-      "red": [
-        {
-          "size": 37,
-          "quantity": 4
-        },
-        {
-          "size": 39,
-          "quantity": 3
-        }
-      ],
-      "black": [
-        {
-          "size": 38,
-          "quantity": 6
-        }
-      ],
-      "gray": [
-        {
-          "size": 40,
-          "quantity": 7
-        },
-        {
-          "size": 42,
-          "quantity": 4
-        }
-      ],
-      "green": [
-        {
-          "size": 41,
-          "quantity": 7
-        }
-      ]
-    },
-    "category": "training"
+    "id": "4303f7e7-a7ff-4ae4-a1bb-4e4d9b2a4629",
+    "name": "puma nitro 2.0",
+    "price": "120.00",
+    "image": "https://ik.imagekit.io/footgear/img/puma-nitro-2.0.png",
+    "category_id": 6,
+    "brand_id": 10
   },
   {
-    "name": "Nike Kyrie 5",
-    "price": 125,
-    "brand": "Nike",
-    "image": "https://i.postimg.cc/ZY69FxT2/nike-kyrie-5.png",
-    "stock": {
-      "blue": [
-        {
-          "size": 37,
-          "quantity": 7
-        }
-      ],
-      "green": [
-        {
-          "size": 38,
-          "quantity": 6
-        },
-        {
-          "size": 39,
-          "quantity": 5
-        },
-        {
-          "size": 42,
-          "quantity": 6
-        }
-      ],
-      "black": [
-        {
-          "size": 40,
-          "quantity": 7
-        },
-        {
-          "size": 41,
-          "quantity": 5
-        }
-      ]
-    },
-    "category": "sportswear"
+    "id": "44e7b630-b767-4191-9a65-dfae41386bc1",
+    "name": "adidas racer tr23",
+    "price": "130.00",
+    "image": "https://ik.imagekit.io/footgear/img/adidas-racer-tr23.png",
+    "category_id": 11,
+    "brand_id": 5
   },
   {
-    "name": "Nike Roshe Run",
-    "price": 100,
-    "brand": "Nike",
-    "image": "https://i.postimg.cc/QxsF6KCt/nike-roshe-run.png",
-    "stock": {
-      "blue": [
-        {
-          "size": 37,
-          "quantity": 6
-        }
-      ],
-      "green": [
-        {
-          "size": 38,
-          "quantity": 6
-        },
-        {
-          "size": 42,
-          "quantity": 3
-        }
-      ],
-      "red": [
-        {
-          "size": 39,
-          "quantity": 6
-        }
-      ],
-      "gray": [
-        {
-          "size": 40,
-          "quantity": 3
-        }
-      ],
-      "white": [
-        {
-          "size": 41,
-          "quantity": 3
-        }
-      ]
-    },
-    "category": "running"
+    "id": "46a2841b-4831-4aa4-9a04-872004814712",
+    "name": "nike dunk high retro",
+    "price": "140.00",
+    "image": "https://ik.imagekit.io/footgear/img/nike-dunk-high-retro.png",
+    "category_id": 5,
+    "brand_id": 1
   },
   {
-    "name": "Nike Vapor Max",
-    "price": 145,
-    "brand": "Nike",
-    "image": "https://i.postimg.cc/GhQH63Tj/nike-vapor-max.png",
-    "stock": {
-      "red": [
-        {
-          "size": 37,
-          "quantity": 7
-        }
-      ],
-      "black": [
-        {
-          "size": 38,
-          "quantity": 6
-        },
-        {
-          "size": 41,
-          "quantity": 6
-        }
-      ],
-      "gray": [
-        {
-          "size": 39,
-          "quantity": 5
-        },
-        {
-          "size": 40,
-          "quantity": 3
-        }
-      ],
-      "blue": [
-        {
-          "size": 42,
-          "quantity": 7
-        }
-      ]
-    },
-    "category": "urban"
+    "id": "46e7e39c-fba9-4fce-8b9a-ac0bc778dc7e",
+    "name": "puma nitro",
+    "price": "130.00",
+    "image": "https://ik.imagekit.io/footgear/img/puma-nitro.png",
+    "category_id": 9,
+    "brand_id": 10
   },
   {
-    "name": "Nike Zoom Pegasus",
-    "price": 135,
-    "brand": "Nike",
-    "image": "https://i.postimg.cc/g22np9vb/nike-zoom-pegasus.png",
-    "stock": {
-      "blue": [
-        {
-          "size": 37,
-          "quantity": 3
-        },
-        {
-          "size": 39,
-          "quantity": 5
-        }
-      ],
-      "white": [
-        {
-          "size": 38,
-          "quantity": 3
-        }
-      ],
-      "red": [
-        {
-          "size": 40,
-          "quantity": 6
-        },
-        {
-          "size": 42,
-          "quantity": 4
-        }
-      ],
-      "gray": [
-        {
-          "size": 41,
-          "quantity": 4
-        }
-      ]
-    },
-    "category": "running"
+    "id": "48a6a877-03bf-43fb-aece-2a535fc466ad",
+    "name": "adidas forum low",
+    "price": "130.00",
+    "image": "https://ik.imagekit.io/footgear/img/adidas-forum-low.png",
+    "category_id": 7,
+    "brand_id": 5
   },
   {
-    "name": "Nike Air Max 90",
-    "price": 130,
-    "brand": "Nike",
-    "image": "https://i.postimg.cc/QMV9QLtJ/nike-air-max-90.png",
-    "stock": {
-      "white": [
-        {
-          "size": 37,
-          "quantity": 7
-        }
-      ],
-      "gray": [
-        {
-          "size": 38,
-          "quantity": 5
-        }
-      ],
-      "blue": [
-        {
-          "size": 39,
-          "quantity": 6
-        },
-        {
-          "size": 42,
-          "quantity": 7
-        }
-      ],
-      "black": [
-        {
-          "size": 40,
-          "quantity": 3
-        },
-        {
-          "size": 41,
-          "quantity": 4
-        }
-      ]
-    },
-    "category": "basketball"
+    "id": "63b4a592-a24a-4a42-80b7-d65bb51c5d3d",
+    "name": "nike roshe run",
+    "price": "100.00",
+    "image": "https://ik.imagekit.io/footgear/img/nike-roshe-run.png",
+    "category_id": 2,
+    "brand_id": 1
   },
   {
-    "name": "Adidas Ultra Boost",
-    "price": 150,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/RZ4wnbKg/adidasultraboost-light-23.png",
-    "stock": {
-      "gray": [
-        {
-          "size": 37,
-          "quantity": 3
-        },
-        {
-          "size": 38,
-          "quantity": 6
-        },
-        {
-          "size": 42,
-          "quantity": 5
-        }
-      ],
-      "black": [
-        {
-          "size": 39,
-          "quantity": 3
-        }
-      ],
-      "green": [
-        {
-          "size": 40,
-          "quantity": 7
-        }
-      ],
-      "white": [
-        {
-          "size": 41,
-          "quantity": 5
-        }
-      ]
-    },
-    "category": "training"
+    "id": "67205e23-d12c-4b2e-9a21-995971f2b1b6",
+    "name": "nike air force 1",
+    "price": "110.00",
+    "image": "https://ik.imagekit.io/footgear/img/nike-air-force-1.png",
+    "category_id": 7,
+    "brand_id": 1
   },
   {
-    "name": "Adidas Alphaboost",
-    "price": 145,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/cJTgYx0H/adidas-alphaboost-v1.png",
-    "stock": {
-      "gray": [
-        {
-          "size": 37,
-          "quantity": 3
-        },
-        {
-          "size": 41,
-          "quantity": 6
-        }
-      ],
-      "white": [
-        {
-          "size": 38,
-          "quantity": 7
-        }
-      ],
-      "green": [
-        {
-          "size": 39,
-          "quantity": 3
-        }
-      ],
-      "blue": [
-        {
-          "size": 40,
-          "quantity": 3
-        }
-      ],
-      "red": [
-        {
-          "size": 42,
-          "quantity": 3
-        }
-      ]
-    },
-    "category": "sportswear"
+    "id": "6b1e0ec2-8eae-4a47-8d87-6e0a35c73e08",
+    "name": "adidas run 80s",
+    "price": "110.00",
+    "image": "https://ik.imagekit.io/footgear/img/adidas-run-80s.png",
+    "category_id": 9,
+    "brand_id": 5
   },
   {
-    "name": "Adidas Terrex Ax4",
-    "price": 140,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/6pcnVLht/adidas-terrex-ax4.png",
-    "stock": {
-      "blue": [
-        {
-          "size": 37,
-          "quantity": 3
-        },
-        {
-          "size": 41,
-          "quantity": 3
-        }
-      ],
-      "red": [
-        {
-          "size": 38,
-          "quantity": 6
-        }
-      ],
-      "black": [
-        {
-          "size": 39,
-          "quantity": 7
-        }
-      ],
-      "green": [
-        {
-          "size": 40,
-          "quantity": 6
-        }
-      ],
-      "gray": [
-        {
-          "size": 42,
-          "quantity": 7
-        }
-      ]
-    },
-    "category": "training"
+    "id": "6c1e12e0-40a2-44ce-83cc-939d6063a9fc",
+    "name": "puma nitro 3.0",
+    "price": "125.00",
+    "image": "https://ik.imagekit.io/footgear/img/puma-nitro-3.0.png",
+    "category_id": 9,
+    "brand_id": 10
   },
   {
-    "name": "Adidas Free Hiker 2.0",
-    "price": 155,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/Y2T3j3dP/adidas-free-hiker-2-0-gore-tex.png",
-    "stock": {
-      "blue": [
-        {
-          "size": 37,
-          "quantity": 5
-        }
-      ],
-      "white": [
-        {
-          "size": 38,
-          "quantity": 4
-        }
-      ],
-      "green": [
-        {
-          "size": 39,
-          "quantity": 5
-        },
-        {
-          "size": 40,
-          "quantity": 3
-        },
-        {
-          "size": 41,
-          "quantity": 7
-        },
-        {
-          "size": 42,
-          "quantity": 5
-        }
-      ]
-    },
-    "category": "basketball"
+    "id": "705d889d-757e-4ebe-aa40-816e2cf81a6b",
+    "name": "nike blazer mid",
+    "price": "115.00",
+    "image": "https://ik.imagekit.io/footgear/img/nike-blazer-mid.png",
+    "category_id": 8,
+    "brand_id": 1
   },
   {
-    "name": "Adidas Galaxy 6",
-    "price": 120,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/BQDCFKyn/adidas-galaxy-6.png",
-    "stock": {
-      "black": [
-        {
-          "size": 37,
-          "quantity": 7
-        },
-        {
-          "size": 41,
-          "quantity": 3
-        }
-      ],
-      "red": [
-        {
-          "size": 38,
-          "quantity": 3
-        }
-      ],
-      "green": [
-        {
-          "size": 39,
-          "quantity": 5
-        }
-      ],
-      "blue": [
-        {
-          "size": 40,
-          "quantity": 3
-        }
-      ],
-      "gray": [
-        {
-          "size": 42,
-          "quantity": 3
-        }
-      ]
-    },
-    "category": "walking"
+    "id": "8d61761f-a234-430d-b3f6-86373626e80c",
+    "name": "nike ice 3",
+    "price": "135.00",
+    "image": "https://ik.imagekit.io/footgear/img/nike-ice-3.png",
+    "category_id": 10,
+    "brand_id": 1
   },
   {
-    "name": "Adidas Court Jam",
-    "price": 115,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/766CnFZN/adidas-court-jam.png",
-    "stock": {
-      "green": [
-        {
-          "size": 37,
-          "quantity": 6
-        },
-        {
-          "size": 38,
-          "quantity": 6
-        }
-      ],
-      "red": [
-        {
-          "size": 39,
-          "quantity": 4
-        },
-        {
-          "size": 41,
-          "quantity": 5
-        }
-      ],
-      "gray": [
-        {
-          "size": 40,
-          "quantity": 4
-        }
-      ],
-      "white": [
-        {
-          "size": 42,
-          "quantity": 6
-        }
-      ]
-    },
-    "category": "casual"
+    "id": "9483293d-4327-4a42-8230-4f0369a6bc6a",
+    "name": "adidas galaxy 6",
+    "price": "120.00",
+    "image": "https://ik.imagekit.io/footgear/img/adidas-galaxy-6.png",
+    "category_id": 11,
+    "brand_id": 5
   },
   {
-    "name": "Adidas Gazelle Indoor",
-    "price": 110,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/SQndy5f8/adidas-gazelle-indoor.png",
-    "stock": {
-      "green": [
-        {
-          "size": 37,
-          "quantity": 6
-        },
-        {
-          "size": 38,
-          "quantity": 6
-        },
-        {
-          "size": 42,
-          "quantity": 7
-        }
-      ],
-      "red": [
-        {
-          "size": 39,
-          "quantity": 6
-        }
-      ],
-      "black": [
-        {
-          "size": 40,
-          "quantity": 3
-        }
-      ],
-      "gray": [
-        {
-          "size": 41,
-          "quantity": 7
-        }
-      ]
-    },
-    "category": "lifestyle"
+    "id": "9938bb1c-ea58-4ce6-bef7-223ccc243759",
+    "name": "nike air max 90",
+    "price": "130.00",
+    "image": "https://ik.imagekit.io/footgear/img/nike-air-max-90.png",
+    "category_id": 9,
+    "brand_id": 1
   },
   {
-    "name": "Adidas Samba Og",
-    "price": 105,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/rm3S0VN4/adidas-samba-og.png",
-    "stock": {
-      "black": [
-        {
-          "size": 37,
-          "quantity": 6
-        }
-      ],
-      "blue": [
-        {
-          "size": 38,
-          "quantity": 7
-        }
-      ],
-      "white": [
-        {
-          "size": 39,
-          "quantity": 5
-        }
-      ],
-      "red": [
-        {
-          "size": 40,
-          "quantity": 5
-        },
-        {
-          "size": 42,
-          "quantity": 3
-        }
-      ],
-      "green": [
-        {
-          "size": 41,
-          "quantity": 3
-        }
-      ]
-    },
-    "category": "running"
+    "id": "9baf2046-efe2-4935-9f41-a9c6c3f687a9",
+    "name": "adidas grand court 2.0",
+    "price": "125.00",
+    "image": "https://ik.imagekit.io/footgear/img/adidas-grand-court-2.0.png",
+    "category_id": 7,
+    "brand_id": 5
   },
   {
-    "name": "Adidas Forum Low",
-    "price": 130,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/G2547XBn/adidas-forum-low.png",
-    "stock": {
-      "white": [
-        {
-          "size": 37,
-          "quantity": 7
-        }
-      ],
-      "blue": [
-        {
-          "size": 38,
-          "quantity": 3
-        }
-      ],
-      "gray": [
-        {
-          "size": 39,
-          "quantity": 5
-        },
-        {
-          "size": 41,
-          "quantity": 4
-        },
-        {
-          "size": 42,
-          "quantity": 6
-        }
-      ],
-      "green": [
-        {
-          "size": 40,
-          "quantity": 5
-        }
-      ]
-    },
-    "category": "sportswear"
+    "id": "9e2a8598-16d0-499e-944b-513ae338b8d7",
+    "name": "adidas rivalry low",
+    "price": "105.00",
+    "image": "https://ik.imagekit.io/footgear/img/adidas-rivalry-low.png",
+    "category_id": 2,
+    "brand_id": 5
   },
   {
-    "name": "Adidas Grand Court 2.0",
-    "price": 125,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/qvTxx7VX/adidas-grand-court-2-0-shoes.png",
-    "stock": {
-      "green": [
-        {
-          "size": 37,
-          "quantity": 4
-        },
-        {
-          "size": 39,
-          "quantity": 3
-        }
-      ],
-      "white": [
-        {
-          "size": 38,
-          "quantity": 3
-        },
-        {
-          "size": 40,
-          "quantity": 3
-        }
-      ],
-      "gray": [
-        {
-          "size": 41,
-          "quantity": 6
-        }
-      ],
-      "black": [
-        {
-          "size": 42,
-          "quantity": 3
-        }
-      ]
-    },
-    "category": "sportswear"
+    "id": "a539a632-e4c7-4c39-8e9c-3efb0930070c",
+    "name": "nike air max",
+    "price": "130.00",
+    "image": "https://ik.imagekit.io/footgear/img/nike-air-max.png",
+    "category_id": 7,
+    "brand_id": 1
   },
   {
-    "name": "Adidas Swift Run 2.0",
-    "price": 115,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/QNKgL7jJ/adidas-swift-run-2-0-shoes.png",
-    "stock": {
-      "gray": [
-        {
-          "size": 37,
-          "quantity": 4
-        },
-        {
-          "size": 38,
-          "quantity": 5
-        }
-      ],
-      "red": [
-        {
-          "size": 39,
-          "quantity": 5
-        }
-      ],
-      "green": [
-        {
-          "size": 40,
-          "quantity": 6
-        },
-        {
-          "size": 42,
-          "quantity": 5
-        }
-      ],
-      "blue": [
-        {
-          "size": 41,
-          "quantity": 5
-        }
-      ]
-    },
-    "category": "basketball"
+    "id": "acf32a8d-4fd0-48a7-90af-5c9d6bd2e851",
+    "name": "nike zoom pegasus",
+    "price": "135.00",
+    "image": "https://ik.imagekit.io/footgear/img/nike-zoom-pegasus.png",
+    "category_id": 2,
+    "brand_id": 1
   },
   {
-    "name": "Adidas Run 80s",
-    "price": 110,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/B6XTnLHs/adidas-run-80s-shoes.png",
-    "stock": {
-      "blue": [
-        {
-          "size": 37,
-          "quantity": 5
-        }
-      ],
-      "gray": [
-        {
-          "size": 38,
-          "quantity": 6
-        },
-        {
-          "size": 41,
-          "quantity": 5
-        }
-      ],
-      "red": [
-        {
-          "size": 39,
-          "quantity": 4
-        }
-      ],
-      "white": [
-        {
-          "size": 40,
-          "quantity": 5
-        }
-      ],
-      "black": [
-        {
-          "size": 42,
-          "quantity": 6
-        }
-      ]
-    },
-    "category": "basketball"
+    "id": "ad3f8d5e-d21a-4dda-addb-dd86e9c720e5",
+    "name": "nike air presto",
+    "price": "125.00",
+    "image": "https://ik.imagekit.io/footgear/img/nike-air-presto.png",
+    "category_id": 6,
+    "brand_id": 1
   },
   {
-    "name": "Adidas Rivalry Low",
-    "price": 105,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/HLS0m4JB/adidas-rivalry-low-shoes.png",
-    "stock": {
-      "green": [
-        {
-          "size": 37,
-          "quantity": 4
-        },
-        {
-          "size": 38,
-          "quantity": 6
-        }
-      ],
-      "white": [
-        {
-          "size": 39,
-          "quantity": 7
-        }
-      ],
-      "blue": [
-        {
-          "size": 40,
-          "quantity": 3
-        },
-        {
-          "size": 41,
-          "quantity": 3
-        },
-        {
-          "size": 42,
-          "quantity": 7
-        }
-      ]
-    },
-    "category": "running"
+    "id": "b1338e67-86fb-47a9-8070-aa9c1da7d4e2",
+    "name": "nike vapor max",
+    "price": "145.00",
+    "image": "https://ik.imagekit.io/footgear/img/nike-vapor-max.png",
+    "category_id": 5,
+    "brand_id": 1
   },
   {
-    "name": "Adidas Racer Tr23",
-    "price": 130,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/ZqYPXDqW/adidas-racer-tr23.png",
-    "stock": {
-      "black": [
-        {
-          "size": 37,
-          "quantity": 7
-        },
-        {
-          "size": 41,
-          "quantity": 4
-        }
-      ],
-      "green": [
-        {
-          "size": 38,
-          "quantity": 7
-        },
-        {
-          "size": 39,
-          "quantity": 3
-        },
-        {
-          "size": 42,
-          "quantity": 6
-        }
-      ],
-      "red": [
-        {
-          "size": 40,
-          "quantity": 7
-        }
-      ]
-    },
-    "category": "walking"
+    "id": "b8bbee29-7abe-4443-9ee3-62f1eb6c2d1c",
+    "name": "adidas gazelle indoor",
+    "price": "110.00",
+    "image": "https://ik.imagekit.io/footgear/img/adidas-gazelle-indoor.png",
+    "category_id": 6,
+    "brand_id": 5
   },
   {
-    "name": "Adidas Swift Run 1.0",
-    "price": 125,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/prjKKws6/adidas-swift-run-1-0-shoes.png",
-    "stock": {
-      "red": [
-        {
-          "size": 37,
-          "quantity": 6
-        }
-      ],
-      "black": [
-        {
-          "size": 38,
-          "quantity": 5
-        },
-        {
-          "size": 41,
-          "quantity": 3
-        }
-      ],
-      "white": [
-        {
-          "size": 39,
-          "quantity": 4
-        }
-      ],
-      "gray": [
-        {
-          "size": 40,
-          "quantity": 7
-        },
-        {
-          "size": 42,
-          "quantity": 5
-        }
-      ]
-    },
-    "category": "lifestyle"
+    "id": "bae9f30e-fe3b-4314-9a86-6136c8779050",
+    "name": "puma power frame",
+    "price": "140.00",
+    "image": "https://ik.imagekit.io/footgear/img/puma-power-frame.png",
+    "category_id": 11,
+    "brand_id": 10
   },
   {
-    "name": "Puma Infusion",
-    "price": 115,
-    "brand": "Puma",
-    "image": "https://i.postimg.cc/LXLsDmML/puma-infusion.png",
-    "stock": {
-      "black": [
-        {
-          "size": 37,
-          "quantity": 7
-        },
-        {
-          "size": 42,
-          "quantity": 5
-        }
-      ],
-      "red": [
-        {
-          "size": 38,
-          "quantity": 7
-        }
-      ],
-      "gray": [
-        {
-          "size": 39,
-          "quantity": 6
-        }
-      ],
-      "white": [
-        {
-          "size": 40,
-          "quantity": 6
-        },
-        {
-          "size": 41,
-          "quantity": 3
-        }
-      ]
-    },
-    "category": "lifestyle"
+    "id": "bf755e85-96b2-4c3b-94cd-62978ac34074",
+    "name": "puma lex nova",
+    "price": "110.00",
+    "image": "https://ik.imagekit.io/footgear/img/puma-lex-nova.png",
+    "category_id": 11,
+    "brand_id": 10
   },
   {
-    "name": "Puma Lex Nova",
-    "price": 110,
-    "brand": "Puma",
-    "image": "https://i.postimg.cc/T1c38Q1P/puma-lex-nova.png",
-    "stock": {
-      "black": [
-        {
-          "size": 37,
-          "quantity": 3
-        },
-        {
-          "size": 38,
-          "quantity": 3
-        }
-      ],
-      "white": [
-        {
-          "size": 39,
-          "quantity": 3
-        }
-      ],
-      "blue": [
-        {
-          "size": 40,
-          "quantity": 6
-        }
-      ],
-      "gray": [
-        {
-          "size": 41,
-          "quantity": 6
-        }
-      ],
-      "red": [
-        {
-          "size": 42,
-          "quantity": 7
-        }
-      ]
-    },
-    "category": "walking"
+    "id": "ca8f4813-a63a-488e-985e-5ef66ea77db9",
+    "name": "adidas free hiker 2.0",
+    "price": "155.00",
+    "image": "https://ik.imagekit.io/footgear/img/adidas-free-hiker-2.0.png",
+    "category_id": 9,
+    "brand_id": 5
   },
   {
-    "name": "Puma Power Frame",
-    "price": 140,
-    "brand": "Puma",
-    "image": "https://i.postimg.cc/J41h3wYH/puma-pwr-frame.png",
-    "stock": {
-      "white": [
-        {
-          "size": 37,
-          "quantity": 7
-        },
-        {
-          "size": 38,
-          "quantity": 4
-        },
-        {
-          "size": 42,
-          "quantity": 7
-        }
-      ],
-      "black": [
-        {
-          "size": 39,
-          "quantity": 3
-        }
-      ],
-      "blue": [
-        {
-          "size": 40,
-          "quantity": 5
-        }
-      ],
-      "green": [
-        {
-          "size": 41,
-          "quantity": 3
-        }
-      ]
-    },
-    "category": "walking"
+    "id": "cb57ccd2-fcce-4cb8-94b9-326c66b1eb0f",
+    "name": "puma power frame 2.0",
+    "price": "145.00",
+    "image": "https://ik.imagekit.io/footgear/img/puma-power-frame-2.0.png",
+    "category_id": 7,
+    "brand_id": 10
   },
   {
-    "name": "Puma Power Frame 2.0",
-    "price": 145,
-    "brand": "Puma",
-    "image": "https://i.postimg.cc/htvPwLBS/puma-pwr-frame-2.0.png",
-    "stock": {
-      "black": [
-        {
-          "size": 37,
-          "quantity": 4
-        }
-      ],
-      "red": [
-        {
-          "size": 38,
-          "quantity": 4
-        },
-        {
-          "size": 39,
-          "quantity": 4
-        }
-      ],
-      "gray": [
-        {
-          "size": 40,
-          "quantity": 4
-        }
-      ],
-      "green": [
-        {
-          "size": 41,
-          "quantity": 4
-        }
-      ],
-      "white": [
-        {
-          "size": 42,
-          "quantity": 3
-        }
-      ]
-    },
-    "category": "sportswear"
+    "id": "ccec97d0-19bc-48fa-ae78-fb1a550d0b0b",
+    "name": "adidas swift run 1.0",
+    "price": "125.00",
+    "image": "https://ik.imagekit.io/footgear/img/adidas-swift-run-1.0.png",
+    "category_id": 6,
+    "brand_id": 5
   },
   {
-    "name": "Puma Training Fuse 3.0",
-    "price": 135,
-    "brand": "Puma",
-    "image": "https://i.postimg.cc/jS1drDxy/puma-training-fuse-3.0.png",
-    "stock": {
-      "red": [
-        {
-          "size": 37,
-          "quantity": 4
-        },
-        {
-          "size": 41,
-          "quantity": 6
-        }
-      ],
-      "green": [
-        {
-          "size": 38,
-          "quantity": 7
-        },
-        {
-          "size": 39,
-          "quantity": 6
-        }
-      ],
-      "black": [
-        {
-          "size": 40,
-          "quantity": 5
-        },
-        {
-          "size": 42,
-          "quantity": 5
-        }
-      ]
-    },
-    "category": "urban"
+    "id": "ce53602b-48b5-418a-aa09-8738ea034370",
+    "name": "adidas terrex ax4",
+    "price": "140.00",
+    "image": "https://ik.imagekit.io/footgear/img/adidas-terrex-ax4.png",
+    "category_id": 10,
+    "brand_id": 5
   },
   {
-    "name": "Puma Nitro 3.0",
-    "price": 125,
-    "brand": "Puma",
-    "image": "https://i.postimg.cc/yYv8vf2Q/puma-nitro-3-0.png",
-    "stock": {
-      "red": [
-        {
-          "size": 37,
-          "quantity": 6
-        },
-        {
-          "size": 38,
-          "quantity": 5
-        }
-      ],
-      "green": [
-        {
-          "size": 39,
-          "quantity": 6
-        },
-        {
-          "size": 42,
-          "quantity": 5
-        }
-      ],
-      "black": [
-        {
-          "size": 40,
-          "quantity": 5
-        }
-      ],
-      "blue": [
-        {
-          "size": 41,
-          "quantity": 7
-        }
-      ]
-    },
-    "category": "basketball"
+    "id": "e3a3ed4c-fbf2-4d41-97da-da928a551df9",
+    "name": "puma infusion",
+    "price": "115.00",
+    "image": "https://ik.imagekit.io/footgear/img/puma-infusion.png",
+    "category_id": 6,
+    "brand_id": 10
   },
   {
-    "name": "Puma Nitro 2.0",
-    "price": 120,
-    "brand": "Puma",
-    "image": "https://i.postimg.cc/gcyJ6csP/puma-nitro-2-0.png",
-    "stock": {
-      "white": [
-        {
-          "size": 37,
-          "quantity": 4
-        },
-        {
-          "size": 40,
-          "quantity": 4
-        }
-      ],
-      "black": [
-        {
-          "size": 38,
-          "quantity": 4
-        }
-      ],
-      "green": [
-        {
-          "size": 39,
-          "quantity": 3
-        }
-      ],
-      "red": [
-        {
-          "size": 41,
-          "quantity": 7
-        }
-      ],
-      "blue": [
-        {
-          "size": 42,
-          "quantity": 6
-        }
-      ]
-    },
-    "category": "lifestyle"
+    "id": "e9ca5537-1847-498b-91ab-ccc637da41c3",
+    "name": "adidas alphaboost",
+    "price": "145.00",
+    "image": "https://ik.imagekit.io/footgear/img/adidas-alphaboost.png",
+    "category_id": 7,
+    "brand_id": 5
   },
   {
-    "name": "Puma Nitro",
-    "price": 130,
-    "brand": "Puma",
-    "image": "https://i.postimg.cc/Kjb8sCZV/puma-nitro.png",
-    "stock": {
-      "gray": [
-        {
-          "size": 37,
-          "quantity": 3
-        }
-      ],
-      "red": [
-        {
-          "size": 38,
-          "quantity": 3
-        },
-        {
-          "size": 39,
-          "quantity": 6
-        },
-        {
-          "size": 40,
-          "quantity": 5
-        }
-      ],
-      "blue": [
-        {
-          "size": 41,
-          "quantity": 4
-        }
-      ],
-      "black": [
-        {
-          "size": 42,
-          "quantity": 7
-        }
-      ]
-    },
-    "category": "basketball"
-  },
-  {
-    "name": "Puma Fuse Hyperwave",
-    "price": 115,
-    "brand": "Puma",
-    "image": "https://i.postimg.cc/mgph2dwz/puma-fuse-hyperwave.png",
-    "stock": {
-      "black": [
-        {
-          "size": 37,
-          "quantity": 6
-        },
-        {
-          "size": 40,
-          "quantity": 6
-        },
-        {
-          "size": 42,
-          "quantity": 5
-        }
-      ],
-      "red": [
-        {
-          "size": 38,
-          "quantity": 6
-        }
-      ],
-      "gray": [
-        {
-          "size": 39,
-          "quantity": 3
-        }
-      ],
-      "blue": [
-        {
-          "size": 41,
-          "quantity": 5
-        }
-      ]
-    },
-    "category": "lifestyle"
+    "id": "eb913969-083a-419f-9941-b632d1990759",
+    "name": "adidas ultra boost",
+    "price": "150.00",
+    "image": "https://ik.imagekit.io/footgear/img/adidas-ultra-boost.png",
+    "category_id": 10,
+    "brand_id": 5
   }
 ]

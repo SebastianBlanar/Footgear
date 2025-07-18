@@ -16,16 +16,10 @@ category_id INT NOT NULL,
 FOREIGN KEY(brand_id) REFERENCES brand(id),
 FOREIGN KEY(category_id) REFERENCES category(id)
 );
-CREATE TABLE IF NOT EXISTS product_variant (
-id BINARY(16) PRIMARY KEY,
-product_id BINARY(16) NOT NULL,
-color VARCHAR(50) NOT NULL,
-FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
-);
 CREATE TABLE IF NOT EXISTS stock (
 id INT AUTO_INCREMENT PRIMARY KEY, 
-variant_id BINARY(16) NOT NULL,
+product_id BINARY(16) NOT NULL,
 size INT NOT NULL CHECK (size BETWEEN 30 AND 50),
 quantity INT NOT NULL CHECK (quantity >= 0),
-FOREIGN KEY(variant_id) REFERENCES product_variant(id) ON DELETE CASCADE
+FOREIGN KEY(product_id) REFERENCES product(id) ON DELETE CASCADE
 );

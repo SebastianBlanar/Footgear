@@ -8,37 +8,72 @@ export function CartProvider({ children }) {
   });
 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cartItems));
+    const stored = localStorage.setItem("cart", JSON.stringify(cartItems));
+      console.log( Array.isArray(stored) ? stored : []);
   }, [cartItems]);
 
   function isInCart(id) {
     return cartItems.some((i) => i.id == id);
   }
-  function getQuantity(id){
-    return cartItems.find(item => item.id == id).quantity
-  }
-  function addToCart(item) {
-    if (isInCart(item.id)) {
-      const newQuantity = getQuantity(item.id) + 1
-      updateQuantity(item.id,newQuantity)
+
+  function addToCart(item,size,quantity) {
+    if(isInCart(item.id)){
+        updateQuantity(item.id,quantity,size)
+        return
+      }
+      const product = { 
+      ...item,
+      selected : [{size : size, quantity : quantity}]
     }
-      else setCartItems([...cartItems, { ...item, quantity: 1 }]);
+    setCartItems(prev => [...prev,product]);
     }
-  function removeFromCart(id) {
-    setCartItems(cartItems.filter((i) => i.id != id));
+function removeFromCart(id, size) {
+  setCartItems((prevCart) => {
+    return prevCart.flatMap((item) => {
+      if (item.id !== id) return item;
+
+      const updatedSelected = item.selected.filter((s) => s.size !== size);
+
+      if (updatedSelected.length === 0) {
+        return [];
+      }
+
+      return { ...item, selected: updatedSelected };
+    });
+  });
+}
+function updateQuantity(id, quantity, size) {
+  if (isInCart(id)) {
+    const newCart = cartItems.map((item) => {
+      if (item.id === id) {
+        const existingSize = item.selected.find((s) => s.size === size);
+        let newSelected;
+        if (existingSize) {
+          newSelected = item.selected.map((s) =>
+            s.size === size ? { ...s, quantity } : s
+          );
+        } else {
+          newSelected = [...item.selected, { size, quantity }];
+        }
+        return { ...item, selected: newSelected };
+      }
+      return item;
+    });
+    setCartItems(newCart);
   }
-  function updateQuantity(id, quantity) {
-    if (isInCart(id))
-      setCartItems(
-        cartItems.map((i) => i.id == id ? { ...i, quantity: quantity } : i)
-      );
-  }
+}
+
   const clearCart = () => {
     setCartItems([]);
     localStorage.removeItem("cart");
   };
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = cartItems.reduce((sum,item) => sum + (item.price * item.quantity), 0)
+const totalItems = cartItems.reduce((sum, item) => {
+  return sum + item.selected.reduce((s, sel) => s + sel.quantity, 0);
+}, 0);
+
+const totalPrice = cartItems.reduce((sum, item) => {
+  return sum + item.selected.reduce((s, sel) => s + (parseFloat(item.price) * sel.quantity), 0);
+}, 0);
 
   return (
     <CartContext.Provider
