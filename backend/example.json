@@ -6,7 +6,6 @@
   "brand": "Nike",
   "stock": [
     {
-      "color": "white",
       "size": 37,
       "quantity": 7
     },

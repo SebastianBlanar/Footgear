@@ -37,7 +37,7 @@ export function FormComponent({ setOrderConfirmed }) {
       direccion: data.address,
     };
     try {
-      const orderId = await createOrder(customer, cartItems, totalPrice);
+      const orderId = await createOrder(customer, cartItems.map(i=>i.id), totalPrice);
       MySwal.fire({
         title: <p>¡Pedido realizado!</p>,
         html: `<p>Su pedido está listo.</p><p><strong>ID de pedido:</strong> ${orderId}</p>`,

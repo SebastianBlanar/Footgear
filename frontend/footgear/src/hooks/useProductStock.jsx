@@ -9,10 +9,10 @@ export function useProductStock({ productId }) {
     async function fetchProductStock() {
     try {
       const res = await fetch(
-        "http://localhost:1234/stocks/" + productId
+        "http://localhost:1234/stocks/product/" + productId
       );
       if (!res.ok)
-        throw new Error(`Èrror getting stock from product : ${productId}`);
+        throw new Error(`Error getting stock from product : ${productId}`);
       const data = await res.json();
       setProductStock(data);
       fetchProductStock();

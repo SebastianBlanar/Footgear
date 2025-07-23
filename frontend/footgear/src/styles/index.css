@@ -22,3 +22,18 @@ body {
   --font-sans: 'Inter', sans-serif;
   }
 }
+
+/* Para navegadores basados en WebKit (Chrome, Safari, Edge, Opera) */
+::-webkit-scrollbar {
+    display: none; /* Oculta la barra de desplazamiento */
+}
+
+/* Para Firefox */
+html {
+    scrollbar-width: none; /* Oculta la barra de desplazamiento */
+}
+
+/* Para Internet Explorer y Edge (versiones anteriores) */
+body {
+    -ms-overflow-style: none; /* Oculta la barra de desplazamiento */
+}

@@ -6,7 +6,7 @@ export function BrandsProvider({ children }){
   const [ isLoading,setIsLoading ] = useState(true)
   const [error,setError] = useState(null)
 
-  const getBrandId = (name) =>brands.find((b) => b.name.toLowerCase() == name ).id
+  const getBrandByName = (name) =>brands.find((b) => b.name.toLowerCase() == name )
   useEffect(()=>{
     async function fetchBrands(){
       try {
@@ -22,7 +22,7 @@ export function BrandsProvider({ children }){
     }
     fetchBrands()
   },[])
-  return <BrandsContext.Provider value={{brands,getBrandId,isLoading,error} }>
+  return <BrandsContext.Provider value={{brands,getBrandByName,isLoading,error} }>
     {children}
   </BrandsContext.Provider>
 }

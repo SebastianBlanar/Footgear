@@ -1,15 +1,13 @@
-import { getConnection } from '../../db/init.js'
+import { withConnection } from '../../db/init.js'
 import { randomUUID } from 'crypto'
 import { normalizeString } from '../../Utils.js'
 import { CategoryModel } from './CategoryModel.js'
 import { BrandModel } from './BrandModel.js'
+import { StockModel } from './StockModel.js'
 
 export class ProductsModel {
   static async getAll({ category, brand }) {
-    const pool = getConnection()
-    const connection = await pool.getConnection()
-
-    try {
+    return withConnection(async (connection) => {
       const conditions = []
       const params = []
 
@@ -33,104 +31,88 @@ export class ProductsModel {
       }
 
       const [rows] = await connection.query(query, params)
-      if (!rows.length) return []
-
-      return rows
-    } finally {
-      connection.release()
-    }
+      return rows.length === 0 ? [] : rows
+    })
   }
 
   static async getById({ id }) {
-    const pool = getConnection()
-    const connection = await pool.getConnection()
-    try {
-      const [rows] = await connection.query("SELECT BIN_TO_UUID(id) id, name, price, image, category_id, brand_id FROM product WHERE id = UUID_TO_BIN(?)", [id])
+    return withConnection(async (connection) => {
+      const [rows] = await connection.query(
+        "SELECT BIN_TO_UUID(id) id, name, price, image, category_id, brand_id FROM product WHERE id = UUID_TO_BIN(?)",
+        [id]
+      )
       return rows[0] ?? null
-    }
-    finally {
-      connection.release()
-    }
+    })
   }
-  static async create({ input }) {
-    const createProduct = async ({ input, connection }) => {
-      const product_id = randomUUID()
 
+  static async create({ input }) {
+    return withConnection(async (connection) => {
+      const product_id = randomUUID()
+      
       const category = await CategoryModel.getByName({ name: input.category })
       if (!category) throw new Error(`Category ${input.category} not found`)
 
       const brand = await BrandModel.getByName({ name: input.brand })
       if (!brand) throw new Error(`Brand ${input.brand} not found`)
 
-      const [rows] = await connection.query(
+      await connection.beginTransaction()
+
+      const [results] = await connection.query(
         `INSERT INTO product (id, name, price, image, category_id, brand_id) VALUES (UUID_TO_BIN(?), ?, ?, ?, ?, ?)`,
-        [product_id, normalizeString(input.name), input.price, normalizeString(input.image), category.id, brand.id]
+        [
+          product_id,
+          normalizeString(input.name),
+          input.price,
+          normalizeString(input.image),
+          category.id,
+          brand.id
+        ]
       )
 
-      if (rows.affectedRows !== 1) {
+      if (results.affectedRows !== 1) {
+        await connection.rollback()
         throw new Error('Error inserting the product')
       }
-      await createProductStock({ input, product_id, connection })
 
-      return {
-        id: product_id,
-        ...input
-      }
-    }
-    const createProductStock = async ({ input, product_id, connection }) => {
-      for(const {size,quantity} of input.stock){
-        const [stockResult] = await connection.query(
-          "INSERT INTO stock (product_id, size, quantity) VALUES ( UUID_TO_BIN(?), ?, ?)",
-          [product_id, size, quantity]
-        )
-  
-        if (stockResult.affectedRows !== 1) {
+      for (const { size, quantity } of input.stock) {
+        const stockResult = await StockModel.create({
+          input: { product_id, size, quantity },
+          externalConnection: connection
+        })
+
+        if (!stockResult) {
+          await connection.rollback()
           throw new Error(`Error inserting stock for "${product_id}", size ${size}`)
         }
       }
-      }
 
-    const pool = getConnection()
-    const connection = await pool.getConnection()
+      await connection.commit()
 
-    try {
-      await connection.beginTransaction()
-      const newProduct = await createProduct({ input, connection })
-      return newProduct
-    }
-    catch (error) {
-      await connection.rollback()
-      throw error
-    } finally {
-      connection.release()
-    }
+      return await this.getById({id : product_id})
+    })
   }
 
   static async update({ id, input }) {
-    const pool = getConnection()
-    const connection = await pool.getConnection()
-    try {
+    return withConnection(async (connection) => {
       const fields = Object.keys(input).map(f => `${f} = ?`).join(', ')
       const values = Object.values(input)
-      const [result] = await connection.query(`UPDATE product SET ${fields} WHERE id = UUID_TO_BIN(?)`, [...values, id])
-      if (result.affectedRows == 0) return false
-      const [rows] = await connection.query("SELECT BIN_TO_UUID(id) id, name, price, image, category_id, brand_id FROM product WHERE id = UUID_TO_BIN(?)", [id])
-      return rows[0] ?? null
-    }
-    finally {
-      connection.release()
-    }
+
+      const [result] = await connection.query(
+        `UPDATE product SET ${fields} WHERE id = UUID_TO_BIN(?)`,
+        [...values, id]
+      )
+
+      return result.affectedRows > 0 ? await this.getById({id}) : false
+    })
   }
+
   static async delete({ id }) {
-    const pool = getConnection()
-    const connection = await pool.getConnection()
-    try {
-      const [result] = await connection.query("DELETE FROM product WHERE id = UUID_TO_BIN(?)", [id])
-      if (result.affectedRows == 0) return false
-      return true
-    } finally {
-      connection.release()
-    }
+    return withConnection(async (connection) => {
+      const [result] = await connection.query(
+        "DELETE FROM product WHERE id = UUID_TO_BIN(?)",
+        [id]
+      )
+      return result.affectedRows > 0
+    })
   }
 }
-

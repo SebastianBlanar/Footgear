@@ -10,54 +10,21 @@ GET http://localhost:1234/products/9359e380-bb39-46aa-ba6b-bdaf42a2be5f
 GET http://localhost:1234/products?category=running&brand=nike
 
 ### Crear un producto con POST
-POST http://localhost:1234/products
+POST http://localhost:1234/products/
 Content-Type: application/json
 
-
 {
-    "name": "Adidas Alphaboost",
-    "price": 145,
-    "brand": "Adidas",
-    "image": "https://i.postimg.cc/cJTgYx0H/adidas-alphaboost-v1.png",
-    "stock": {
-      "gray": [
-        {
-          "size": 37,
-          "quantity": 3
-        },
-        {
-          "size": 41,
-          "quantity": 6
-        }
-      ],
-      "white": [
-        {
-          "size": 38,
-          "quantity": 7
-        }
-      ],
-      "green": [
-        {
-          "size": 39,
-          "quantity": 3
-        }
-      ],
-      "blue": [
-        {
-          "size": 40,
-          "quantity": 3
-        }
-      ],
-      "red": [
-        {
-          "size": 42,
-          "quantity": 3
-        }
-      ]
-    },
-    "category": "sportswear"
-  }
-  
+  "name": "Nike Messi",
+  "price": 120,
+  "category": "running",
+  "brand": "Nike",
+  "image" : "http://localhost:5173/products",
+  "stock": [
+    {
+      "size": 37,
+      "quantity": 7
+    }]
+}
 ### Actualizar un producto
 PATCH http://localhost:1234/products/b8bbee29-7abe-4443-9ee3-62f1eb6c2d1c
 Content-Type: application/json
@@ -67,7 +34,7 @@ Content-Type: application/json
 }
 
 ### eliminar un producto
-DELETE http://localhost:1234/products/bc4cf161-657c-4eb7-99e6-f64e402fe9d9
+DELETE http://localhost:1234/products/0797c67b-c5b8-482f-b47c-252ed2533f7d
 
 ### MARCAS
 
@@ -79,22 +46,23 @@ GET http://localhost:1234/brands/
 GET http://localhost:1234/brands/5
 
 ### Borrar una marca
-DELETE http://localhost:1234/brands/11
+DELETE http://localhost:1234/brands/13
 
 ### Crear una marca 
 POST http://localhost:1234/brands/
 Content-Type: application/json
 
 {
-  "name" : "adidas"
+  "name" : "topper",
+  "image" : "http://localhost:5173/"
 }
 
 ### Actualizar una marca 
-patch http://localhost:1234/brands/5
-Content-Type: application3/json
+patch http://localhost:1234/brands/10
+Content-Type: application/json
 
 {
-  "name" : "adidas"
+  "image" : "https://ik.imagekit.io/footgear/img/puma-banner.jpg"
 }
 
 
@@ -108,23 +76,107 @@ GET http://localhost:1234/categories/
 GET http://localhost:1234/categories/2
 
 ### Borrar una categoria
-DELETE http://localhost:1234/categories/4
+DELETE http://localhost:1234/categories/12
 
 ### Crear una categoria 
 POST http://localhost:1234/categories/
 Content-Type: application/json
 
 {
-  "name": "urban"
+  "name": "skateboarding", 
+  "image" : "http://localhost:5173/"
 }
 
 ### Actualizar una categoria 
-PATCH http://localhost:1234/categories/2
+PATCH http://localhost:1234/categories/11
 Content-Type: application/json
 
 {
-  "name" : "running"
+  "image" : "https://ik.imagekit.io/footgear/img/puma-walking.webp"
+}
+
+### Obtener todos los stocks
+GET http://localhost:1234/stocks/
+
+### Obtener un stock por id
+GET http://localhost:1234/stocks/261
+
+### Crear un stock 
+POST http://localhost:1234/stocks/
+Content-Type: application/json
+
+{
+  "size" : 44,
+  "product_id" : "072fad3a-b2df-47f2-a156-43f876b7b13f",
+  "quantity" : 5
+}
+
+### Actualizar un stock 
+PATCH http://localhost:1234/stocks/261
+Content-Type: application/json
+
+{
+  "quantity" : 10
 }
 
 ### Obtener todos los stocks de un producto
-GET http://localhost:1234/stocks/1c352556-d9fe-4953-89f8-04e77faadc9e
+GET http://localhost:1234/stocks/product/6b1e0ec2-8eae-4a47-8d87-6e0a35c73e08
+
+### Eliminar un stock 
+DELETE http://localhost:1234/stocks/262
+
+
+### Obtener todos los clientes
+GET http://localhost:1234/customers/
+
+### Obtener un cliente por id
+GET http://localhost:1234/customers/eb658d2b-f889-42be-a780-e9ad1a73b57c
+
+### Crear un cliente
+POST http://localhost:1234/customers/
+Content-Type: application/json
+
+{
+  "name": "Fernando Palomo",
+  "email": "fpal@gmail.com",
+  "address": "Juan Fernando Quintero 3125",
+  "phone" : "01121785466"
+}
+
+### Actualizar un cliente
+PATCH http://localhost:1234/customers/eb658d2b-f889-42be-a780-e9ad1a73b57c
+Content-Type: application/json
+
+{
+  "name" : "Juan Fernando Quintero"
+}
+
+### Eliminar un cliente
+DELETE http://localhost:1234/customers/eb658d2b-f889-42be-a780-e9ad1a73b57c
+
+
+### Obtener todas las ordenes
+GET http://localhost:1234/orders/
+
+### Obtener una orden por id
+GET http://localhost:1234/orders/2b2f7cd4-449d-4365-924c-5028c6df7bb1
+
+### Crear una orden
+POST http://localhost:1234/orders/
+Content-Type: application/json
+
+{
+  "customer_id" : "e7d59e9d-bdc4-4176-8d0d-d5e097929c71",
+  "total_amount" : 300
+}
+### Actualizar una orden
+PATCH http://localhost:1234/orders/2b2f7cd4-449d-4365-924c-5028c6df7bb1
+Content-Type: application/json
+
+{
+  "customer_id" : "e7d59e9d-bdc4-4176-8d0d-d5e097929c71",
+  "status" : "delivered"
+}
+
+### Eliminar una orden
+DELETE http://localhost:1234/orders/85e519a1-d481-4bfc-8365-020696efe68a

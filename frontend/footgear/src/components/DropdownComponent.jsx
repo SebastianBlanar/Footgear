@@ -6,12 +6,12 @@ export function DropdownComponent() {
   const [isActive, setIsActive] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const { setProducts, allProducts } = useProducts();
-  const { brands, getBrandId } = useBrands();
+  const { getBrandByName } = useBrands();
   useEffect(() => {
     if (selectedValue === "") return;
     if (["nike", "adidas", "puma"].includes(selectedValue)) {
       setProducts(
-        allProducts.filter((p) => p.brand_id === getBrandId(selectedValue))
+        allProducts.filter((p) => p.brand_id === getBrandByName(selectedValue).id)
       );
       return;
     }

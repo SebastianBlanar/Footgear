@@ -6,8 +6,11 @@ import { error } from './middlewares/error.js'
 import { createBrandRouter } from './routes/brand.js'
 import { createCategoryRouter } from './routes/category.js'
 import { createStockRouter } from './routes/stocks.js'
+import { createOrderRouter } from './routes/orders.js'
+import { createCustomerRouter } from './routes/customer.js'
+import { createOrderItemRouter } from './routes/orderItem.js'
 
-export const createApp = ({ productsModel,brandModel,categoryModel,stockModel }) => {
+export const createApp = ({ productsModel,brandModel,categoryModel,stockModel,orderModel,customerModel,orderItemModel }) => {
   const app = express()
   app.use(json())
   app.use(cors())
@@ -16,6 +19,9 @@ export const createApp = ({ productsModel,brandModel,categoryModel,stockModel })
   app.use("/brands",createBrandRouter({ brandModel }))
   app.use("/categories",createCategoryRouter({ categoryModel }))
   app.use("/stocks",createStockRouter({ stockModel }))
+  app.use("/orders",createOrderRouter({ orderModel }))
+  app.use("/customers",createCustomerRouter({ customerModel }))
+  app.use("/order_item",createOrderItemRouter({ orderItemModel }))
 
   app.get('/',(req,res)=>{res.send('Home Page')})
   

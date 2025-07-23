@@ -4,13 +4,15 @@ import { useProductStock } from "../hooks/useProductStock";
 import { useCart } from "../contexts/CartContext";
 import { useProducts } from "../contexts/ProductsContext";
 
+const sortStock = (stock) =>  [...stock].sort((a,b)=> a.size - b.size)
+
 export function ProductDetails() {
   const {getProductById} = useProducts()
   const {addToCart} = useCart()
   const { id } = useParams();
   const product = getProductById(id)
   const { productStock, isLoading, error } = useProductStock( { productId : id } )
-  const formattedName = () => product.name.split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
+  const formatName = (name) => name.split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState("");
   
@@ -23,20 +25,20 @@ export function ProductDetails() {
   }
 
   const handleAdd = () => {
-    addToCart(product,size,quantity)
+    if(size !== "") addToCart(product,size,quantity)
   }
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6 md:p-12 flex flex-col md:flex-row gap-10 mt-5">
       {/* Imágenes */}
       <div className="flex flex-col md:flex-row gap-4 w-full md:w-1/2">
         <div className="flex md:flex-col gap-2 md:bg-gradient-to-tr from-gray-950 via-slate-800 to-gray-900">
-            <img className="mt-[-10%] md:" src={product.image} alt={formattedName()} />
+            <img className="mt-[-10%]" src={product.image} alt={formatName(product.name)} />
         </div>
       </div>
 
       {/* Información */}
       <div className="w-full md:w-1/2 space-y-4 mt-8">
-        <h1 className="text-2xl font-semibold">{formattedName()}</h1>
+        <h1 className="text-2xl font-semibold">{formatName(product.name)}</h1>
         <p className="text-xl text-blue-400 font-bold">${product.price}</p>
 
         {/* Cantidad */}
@@ -61,7 +63,7 @@ export function ProductDetails() {
         <div>
           <p className="text-sm">Size</p>
           <div className="flex gap-2 mt-1">
-            {productStock.map((s, i) => (
+            {sortStock(productStock).map((s, i) => (
               <button
                 key={i}
                 onClick={() => handleSize(s.size)}

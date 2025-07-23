@@ -1,6 +1,7 @@
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 
+// Paths
 export function getDirname(metaUrl) {
   return dirname(fileURLToPath(metaUrl))
 }
@@ -10,6 +11,7 @@ export function resolvePath(metaUrl, relativePath) {
   return join(currentDir, relativePath)
 }
 
+// Validations
 export const isValidUUID = (uuid) => /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(uuid)
 
 
@@ -22,10 +24,16 @@ export function normalizeString(str) {
     .trim()
     .toLowerCase()
 }
-export function validateNumber(number){
-  const isValid = Number(number)
-  if(isNaN(isValid)) return false
-  return true 
+
+// Errors
+export const handleZodError = (result, res) => {
+  return res.status(400).json({ message: JSON.parse(result.error.message) })
+}
+export const handleInvalidId = (res,uuid=false) => res.status(400).json({ error: `Id must be a numeric ${uuid ? "uuid" : ""}value` })
+
+
+export const handleNotFound = (res, resource = 'Resource') => {
+  return res.status(404).json({ error: `${resource} not found` })
 }
 
 export const asyncHandler = (fn) => (req, res, next) => {

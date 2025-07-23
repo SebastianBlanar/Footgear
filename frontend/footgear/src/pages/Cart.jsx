@@ -4,7 +4,7 @@ import { useCart } from "../contexts/CartContext";
 export function Cart() {
   let navigate = useNavigate();
   const { cartItems, totalPrice } = useCart();
-  if (cartItems == 0) navigate("/products/");
+  if (cartItems.length == 0) navigate("/products/");
 
   return (
     <main className="bg-black min-h-screen text-white py-6">
