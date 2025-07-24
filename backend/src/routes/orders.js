@@ -10,6 +10,7 @@ export function createOrderRouter({ orderModel }){
   router.get("/",asyncHandler(orderController.getAll.bind(orderController)))
   router.get("/:id",asyncHandler(orderController.getById.bind(orderController)))
   router.post("/",asyncHandler(orderController.create.bind(orderController)))
+  router.post("/buy",asyncHandler(orderController.processPurchase.bind(orderController)))
   router.patch("/:id",asyncHandler(orderController.update.bind(orderController)))
   router.delete("/:id",asyncHandler(orderController.delete.bind(orderController)))
 

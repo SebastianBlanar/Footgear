@@ -35,7 +35,10 @@ export function getConnection() {
   if (!pool) throw new Error('La conexión no está inicializada. Ejecutá initDB primero.')
   return pool
 }
-export async function withConnection(callback) {
+export async function withConnection(callback, externalConnection = null) {
+  if (externalConnection) {
+    return await callback(externalConnection)
+  }
   const pool = getConnection()
   const connection = await pool.getConnection()
   try {
@@ -44,3 +47,25 @@ export async function withConnection(callback) {
     connection.release()
   }
 }
+
+export async function withTransaction(callback) {
+  const pool = getConnection()
+  const connection = await pool.getConnection()
+  
+  try {
+    await connection.beginTransaction()
+
+    const result = await callback(connection)
+
+    await connection.commit()
+    return result
+
+  } catch (error) {
+    await connection.rollback()
+    throw error
+
+  } finally {
+    connection.release()
+  }
+}
+

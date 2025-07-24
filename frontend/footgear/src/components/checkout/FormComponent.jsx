@@ -4,25 +4,13 @@ import withReactContent from "sweetalert2-react-content";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext";
 import { useState } from "react";
+import { createOrder } from "../../api/createOrder";
 
 export function FormComponent({ setOrderConfirmed }) {
   const MySwal = withReactContent(Swal);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { cartItems, clearCart, totalPrice } = useCart();
   const navigate = useNavigate();
-
-  const createOrder = async (customer, items, total) => {
-    // Acá iría una llamada a tu backend con fetch o axios
-    console.log("Enviando orden a la API...", { customer, items, total });
-
-    // Simulación de delay
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve("ORDER-" + Math.floor(Math.random() * 1000000));
-      }, 1500);
-    });
-  };
-
   const {
     register,
     handleSubmit,
@@ -31,13 +19,18 @@ export function FormComponent({ setOrderConfirmed }) {
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
-    const customer = {
-      nombre: data.name,
-      email: data.email,
-      direccion: data.address,
-    };
+    const { name, email, address, phone } = data;
+
+    let items = cartItems.map((i) =>{
+      return i.selected.map((s)=>{
+        return {stock_id : s.stock_id, quantity : s.quantity,price : parseFloat(i.price)}
+      }  )
+    } );
+    items = items.flat(Infinity);
     try {
-      const orderId = await createOrder(customer, cartItems.map(i=>i.id), totalPrice);
+      const orderId = await createOrder({
+        input: { name, email, address, phone, items, total_amount: totalPrice },
+      });
       MySwal.fire({
         title: <p>¡Pedido realizado!</p>,
         html: `<p>Su pedido está listo.</p><p><strong>ID de pedido:</strong> ${orderId}</p>`,
@@ -137,6 +130,34 @@ export function FormComponent({ setOrderConfirmed }) {
         />
         {errors.address && (
           <span className="text-red-500">{errors.address.message}</span>
+        )}
+      </div>
+      <div className="mb-4">
+        <label htmlFor="phone" className="block mb-2">
+          Teléfono
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          className="border rounded-lg w-full p-2 text-white focus:outline-none"
+          {...register("phone", {
+            required: "El campo teléfono es obligatorio",
+            pattern: {
+              value: /^[+]?[\d\s().-]{5,20}$/,
+              message: "Teléfono no válido",
+            },
+            minLength: {
+              value: 5,
+              message: "El teléfono debe tener al menos 5 caracteres",
+            },
+            maxLength: {
+              value: 20,
+              message: "El teléfono no puede tener más de 20 caracteres",
+            },
+          })}
+        />
+        {errors.phone && (
+          <span className="text-red-500">{errors.phone.message}</span>
         )}
       </div>
 

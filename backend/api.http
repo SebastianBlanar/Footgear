@@ -4,7 +4,7 @@
 GET http://localhost:1234/products
 
 ### Recuperar un producto por id
-GET http://localhost:1234/products/9359e380-bb39-46aa-ba6b-bdaf42a2be5f
+GET http://localhost:1234/products/072fad3a-b2df-47f2-a156-43f876b7b13f
 
 ### Recuperar todos los productos por una categoria
 GET http://localhost:1234/products?category=running&brand=nike
@@ -25,16 +25,16 @@ Content-Type: application/json
       "quantity": 7
     }]
 }
-### Actualizar un producto
-PATCH http://localhost:1234/products/b8bbee29-7abe-4443-9ee3-62f1eb6c2d1c
+### Actualizar un producto (falta normalizar strings) 
+PATCH http://localhost:1234/products/f166276b-ecc5-4065-a566-91796731cff3
 Content-Type: application/json
 
 {
-  "image" : "https://ik.imagekit.io/footgear/img/adidas-gazelle-indoor.png?updatedAt=1752701879733" 
+  "name" : "adidas MESSi" 
 }
 
 ### eliminar un producto
-DELETE http://localhost:1234/products/0797c67b-c5b8-482f-b47c-252ed2533f7d
+DELETE http://localhost:1234/products/f166276b-ecc5-4065-a566-91796731cff3
 
 ### MARCAS
 
@@ -45,8 +45,8 @@ GET http://localhost:1234/brands/
 ### Obtener una marca
 GET http://localhost:1234/brands/5
 
-### Borrar una marca
-DELETE http://localhost:1234/brands/13
+### Borrar una marca (poner not found)
+DELETE http://localhost:1234/brands/14
 
 ### Crear una marca 
 POST http://localhost:1234/brands/
@@ -58,7 +58,7 @@ Content-Type: application/json
 }
 
 ### Actualizar una marca 
-patch http://localhost:1234/brands/10
+patch http://localhost:1234/brands/14
 Content-Type: application/json
 
 {
@@ -73,10 +73,10 @@ Content-Type: application/json
 GET http://localhost:1234/categories/
 
 ### Obtener una categoria
-GET http://localhost:1234/categories/2
+GET http://localhost:1234/categories/14
 
 ### Borrar una categoria
-DELETE http://localhost:1234/categories/12
+DELETE http://localhost:1234/categories/14
 
 ### Crear una categoria 
 POST http://localhost:1234/categories/
@@ -88,31 +88,31 @@ Content-Type: application/json
 }
 
 ### Actualizar una categoria 
-PATCH http://localhost:1234/categories/11
+PATCH http://localhost:1234/categories/13
 Content-Type: application/json
 
 {
   "image" : "https://ik.imagekit.io/footgear/img/puma-walking.webp"
 }
 
-### Obtener todos los stocks
+### Obtener todos los stocks (verificar rendimiento)
 GET http://localhost:1234/stocks/
 
 ### Obtener un stock por id
-GET http://localhost:1234/stocks/261
+GET http://localhost:1234/stocks/4
 
 ### Crear un stock 
 POST http://localhost:1234/stocks/
 Content-Type: application/json
 
 {
-  "size" : 44,
+  "size" : 48,
   "product_id" : "072fad3a-b2df-47f2-a156-43f876b7b13f",
   "quantity" : 5
 }
 
 ### Actualizar un stock 
-PATCH http://localhost:1234/stocks/261
+PATCH http://localhost:1234/stocks/5
 Content-Type: application/json
 
 {
@@ -120,17 +120,17 @@ Content-Type: application/json
 }
 
 ### Obtener todos los stocks de un producto
-GET http://localhost:1234/stocks/product/6b1e0ec2-8eae-4a47-8d87-6e0a35c73e08
+GET http://localhost:1234/stocks/product/072fad3a-b2df-47f2-a156-43f876b7b13f
 
 ### Eliminar un stock 
-DELETE http://localhost:1234/stocks/262
+DELETE http://localhost:1234/stocks/274
 
 
 ### Obtener todos los clientes
 GET http://localhost:1234/customers/
 
 ### Obtener un cliente por id
-GET http://localhost:1234/customers/eb658d2b-f889-42be-a780-e9ad1a73b57c
+GET http://localhost:1234/customers/195b4909-d4cd-4437-b2a6-d55be212e606
 
 ### Crear un cliente
 POST http://localhost:1234/customers/
@@ -138,39 +138,39 @@ Content-Type: application/json
 
 {
   "name": "Fernando Palomo",
-  "email": "fpal@gmail.com",
+  "email": "fpaloma@gmail.com",
   "address": "Juan Fernando Quintero 3125",
   "phone" : "01121785466"
 }
 
 ### Actualizar un cliente
-PATCH http://localhost:1234/customers/eb658d2b-f889-42be-a780-e9ad1a73b57c
+PATCH http://localhost:1234/customers/6d8020e1-05c1-4811-9699-cd0dd0d8bcc8
 Content-Type: application/json
 
 {
-  "name" : "Juan Fernando Quintero"
+  "name" : "Lionel Messi"
 }
 
 ### Eliminar un cliente
-DELETE http://localhost:1234/customers/eb658d2b-f889-42be-a780-e9ad1a73b57c
+DELETE http://localhost:1234/customers/2e66af9e-4331-432b-853d-196ec0c2c0b0
 
 
 ### Obtener todas las ordenes
 GET http://localhost:1234/orders/
 
 ### Obtener una orden por id
-GET http://localhost:1234/orders/2b2f7cd4-449d-4365-924c-5028c6df7bb1
+GET http://localhost:1234/orders/d7db0c98-c007-4a45-a143-4561dc4c4990
 
 ### Crear una orden
 POST http://localhost:1234/orders/
 Content-Type: application/json
 
 {
-  "customer_id" : "e7d59e9d-bdc4-4176-8d0d-d5e097929c71",
+  "customer_id" : "a4100707-d931-4e75-9a4e-a20beae7fa10",
   "total_amount" : 300
 }
 ### Actualizar una orden
-PATCH http://localhost:1234/orders/2b2f7cd4-449d-4365-924c-5028c6df7bb1
+PATCH http://localhost:1234/orders/1f783d0c-72ea-4ba4-9018-a8c1c44d592d
 Content-Type: application/json
 
 {
@@ -179,4 +179,60 @@ Content-Type: application/json
 }
 
 ### Eliminar una orden
-DELETE http://localhost:1234/orders/85e519a1-d481-4bfc-8365-020696efe68a
+DELETE http://localhost:1234/orders/cbbe59f8-3082-41e7-97f8-06b0356f8407
+
+### Obtener todos los order_items
+GET http://localhost:1234/order_items/
+
+### Obtener order_items con order_id
+GET http://localhost:1234/order_items/order/1f783d0c-72ea-4ba4-9018-a8c1c44d592d
+
+### Recuperar un order_item
+GET http://localhost:1234/order_items/aff414b4-87f2-4abc-ad96-5b596738c59d
+
+### Crear un order_item
+POST http://localhost:1234/order_items/
+Content-Type: application/json 
+
+{
+  "order_id" : "2b2f7cd4-449d-4365-924c-5028c6df7bb1",  
+  "stock_id": 260 ,
+  "price": 110,
+  "quantity" : 1
+}
+
+### Actualizar un order_item
+PATCH http://localhost:1234/order_items/aff414b4-87f2-4abc-ad96-5b596738c59d
+Content-Type: application/json
+
+{
+  "price" : 220,
+  "quantity" : 2
+}
+
+### Eliminar un order_item
+DELETE http://localhost:1234/order_items/aff414b4-87f2-4abc-ad96-5b596738c59d
+
+### Realizar una compra 
+POST http://localhost:1234/orders/buy
+Content-Type: application/json
+
+{
+  "name": "Juan Fernando Quintero",
+  "email": "jfq@gmail.com",  
+  "phone": "11215446",
+  "address": "Enrique Fernandez 2342",
+  "items": [
+    {
+      "stock_id" : 4,
+      "price" : 120,
+      "quantity" : 1
+    },
+    {
+      "stock_id" : 5,
+      "price" : 120,
+      "quantity" : 1
+    }
+  ],
+  "total_amount" : 240
+}

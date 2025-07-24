@@ -1,4 +1,4 @@
-import { withConnection } from '../../db/init.js'
+import { withConnection, withTransaction } from '../../db/init.js'
 import { randomUUID } from 'crypto'
 import { normalizeString } from '../../Utils.js'
 import { CategoryModel } from './CategoryModel.js'
@@ -6,20 +6,20 @@ import { BrandModel } from './BrandModel.js'
 import { StockModel } from './StockModel.js'
 
 export class ProductsModel {
-  static async getAll({ category, brand }) {
+  static async getAll({ category, brand, externalConnection = null }) {
     return withConnection(async (connection) => {
       const conditions = []
       const params = []
 
       if (category) {
-        const cat = await CategoryModel.getByName({ name: category })
+        const cat = await CategoryModel.getByName({ name: category, externalConnection: connection })
         if (!cat) return false
         conditions.push("category_id = ?")
         params.push(cat.id)
       }
 
       if (brand) {
-        const br = await BrandModel.getByName({ name: brand })
+        const br = await BrandModel.getByName({ name: brand, externalConnection: connection })
         if (!br) return false
         conditions.push("brand_id = ?")
         params.push(br.id)
@@ -32,30 +32,28 @@ export class ProductsModel {
 
       const [rows] = await connection.query(query, params)
       return rows.length === 0 ? [] : rows
-    })
+    }, externalConnection)
   }
 
-  static async getById({ id }) {
+  static async getById({ id, externalConnection = null }) {
     return withConnection(async (connection) => {
       const [rows] = await connection.query(
         "SELECT BIN_TO_UUID(id) id, name, price, image, category_id, brand_id FROM product WHERE id = UUID_TO_BIN(?)",
         [id]
       )
       return rows[0] ?? null
-    })
+    }, externalConnection)
   }
 
   static async create({ input }) {
-    return withConnection(async (connection) => {
+    return withTransaction(async (connection) => {
       const product_id = randomUUID()
-      
-      const category = await CategoryModel.getByName({ name: input.category })
+
+      const category = await CategoryModel.getByName({ name: input.category, externalConnection: connection })
       if (!category) throw new Error(`Category ${input.category} not found`)
 
-      const brand = await BrandModel.getByName({ name: input.brand })
+      const brand = await BrandModel.getByName({ name: input.brand, externalConnection: connection })
       if (!brand) throw new Error(`Brand ${input.brand} not found`)
-
-      await connection.beginTransaction()
 
       const [results] = await connection.query(
         `INSERT INTO product (id, name, price, image, category_id, brand_id) VALUES (UUID_TO_BIN(?), ?, ?, ?, ?, ?)`,
@@ -70,7 +68,6 @@ export class ProductsModel {
       )
 
       if (results.affectedRows !== 1) {
-        await connection.rollback()
         throw new Error('Error inserting the product')
       }
 
@@ -81,18 +78,15 @@ export class ProductsModel {
         })
 
         if (!stockResult) {
-          await connection.rollback()
           throw new Error(`Error inserting stock for "${product_id}", size ${size}`)
         }
       }
 
-      await connection.commit()
-
-      return await this.getById({id : product_id})
+      return await this.getById({ id: product_id, externalConnection: connection })
     })
   }
 
-  static async update({ id, input }) {
+  static async update({ id, input, externalConnection = null }) {
     return withConnection(async (connection) => {
       const fields = Object.keys(input).map(f => `${f} = ?`).join(', ')
       const values = Object.values(input)
@@ -102,17 +96,19 @@ export class ProductsModel {
         [...values, id]
       )
 
-      return result.affectedRows > 0 ? await this.getById({id}) : false
-    })
+      return result.affectedRows > 0
+        ? await this.getById({ id, externalConnection: connection })
+        : false
+    }, externalConnection)
   }
 
-  static async delete({ id }) {
+  static async delete({ id, externalConnection = null }) {
     return withConnection(async (connection) => {
       const [result] = await connection.query(
         "DELETE FROM product WHERE id = UUID_TO_BIN(?)",
         [id]
       )
       return result.affectedRows > 0
-    })
+    }, externalConnection)
   }
 }

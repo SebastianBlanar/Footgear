@@ -11,7 +11,7 @@ export class BrandController {
   }
   getById = async (req, res) => {
     const { id } = req.params
-    if (!validateNumber(id)) return handleInvalidId(res)
+    if (!validateNumber(id)) return handleInvalidId({res})
     const brand = await this.brandModel.getById({ id })
     if (!brand) return handleNotFound(res,"brand")
     return res.status(200).json(brand)
@@ -31,7 +31,7 @@ export class BrandController {
   }
   update = async (req, res) => {
     const { id } = req.params
-    if (!validateNumber(id)) return handleInvalidId(res)
+    if (!validateNumber(id)) return handleInvalidId({res})
 
     const result = validateBrandPartial(req.body)
     if (!result.success || Object.keys(result.data).length === 0) handleZodError(result,res)
@@ -42,7 +42,7 @@ export class BrandController {
   }
   delete = async (req, res) => {
     const { id } = req.params
-    if (!validateNumber(id)) return handleInvalidId(res)
+    if (!validateNumber(id)) return handleInvalidId({res})
 
     const result = await this.brandModel.delete({ id })
     if (!result) return res.status(404).json({ error: "Error deleting the brand" })

@@ -1,5 +1,5 @@
 import { validateCategory, validateCategoryPartial } from "../schemas/category.js"
-import { handleNotFound, handleZodError, normalizeString, validateNumber } from "../Utils.js"
+import { handleInvalidId, handleNotFound, handleZodError, normalizeString, validateNumber } from "../Utils.js"
 
 export class CategoryController {
   constructor({ categoryModel }) {
@@ -11,7 +11,7 @@ export class CategoryController {
   }
   getById = async (req, res) => {
     const { id } = req.params
-    if (!validateNumber(id)) return handleInvalidId(res)
+    if (!validateNumber(id)) return handleInvalidId({res})
 
     const category = await this.categoryModel.getById({ id })
     if (!category) return handleNotFound(res,"category")
@@ -40,7 +40,7 @@ export class CategoryController {
   }
   update = async (req, res) => {
     const { id } = req.params
-    if (!validateNumber(id)) return handleInvalidId(res)
+    if (!validateNumber(id)) return handleInvalidId({res})
 
     const result = validateCategoryPartial(req.body)
     if (!result.success || Object.keys(result.data).length === 0) handleZodError(result,res)
@@ -50,7 +50,7 @@ export class CategoryController {
   }
   delete = async (req, res) => {
     const { id } = req.params
-    if (!validateNumber(id)) return handleInvalidId(res)
+    if (!validateNumber(id)) return handleInvalidId({res})
 
     const result = await this.categoryModel.delete({ id })
     if (!result) return handleNotFound(res,"category")

@@ -12,7 +12,7 @@ export class ProductController {
   }
   getById = async (req, res) => {
     const { id } = req.params
-    if (!isValidUUID(id)) return handleInvalidId(res,uuid=true)
+    if (!isValidUUID(id)) return handleInvalidId({res,uuid : true})
 
     const product = await this.productsModel.getById({ id })
     if (product) return res.status(200).json( product )
@@ -29,7 +29,7 @@ export class ProductController {
     if (!result.success || Object.keys(result.data).length === 0) handleZodError(result,res)
     
     const { id } = req.params
-    if (!isValidUUID(id)) return handleInvalidId(res,uuid=true)
+    if (!isValidUUID(id)) return handleInvalidId({res,uuid : true})
 
     const updatedProduct = await this.productsModel.update({ id, input: result.data })
     if (!updatedProduct) return handleNotFound(res,"Product")
@@ -39,7 +39,7 @@ export class ProductController {
 
   delete = async (req, res) => {
     const { id } = req.params
-    if (!isValidUUID(id)) return handleInvalidId(res,uuid=true)
+    if (!isValidUUID(id)) return handleInvalidId({res,uuid : true})
 
     const result = await this.productsModel.delete({ id })
     if (result === false) return handleNotFound(res,"Product")

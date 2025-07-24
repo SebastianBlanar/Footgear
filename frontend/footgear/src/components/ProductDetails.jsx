@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useProductStock } from "../hooks/useProductStock";
 import { useCart } from "../contexts/CartContext";
 import { useProducts } from "../contexts/ProductsContext";
+import { useEffect } from "react";
 
 const sortStock = (stock) =>  [...stock].sort((a,b)=> a.size - b.size)
 
@@ -15,7 +16,7 @@ export function ProductDetails() {
   const formatName = (name) => name.split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState("");
-  
+
   if(error) return null
   if(isLoading) return <h1>Loading...</h1>
   if (!product) return null;
@@ -25,7 +26,7 @@ export function ProductDetails() {
   }
 
   const handleAdd = () => {
-    if(size !== "") addToCart(product,size,quantity)
+    if(size !== "") addToCart(product,size,quantity,productStock.find(s => s.size == size).id)
   }
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6 md:p-12 flex flex-col md:flex-row gap-10 mt-5">

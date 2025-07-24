@@ -1,5 +1,5 @@
 import { validateCustomer, validatePartialCustomer } from "../schemas/customer.js"
-import { handleZodError, handleInvalidId, isValidUUID, handleNotFound } from "../Utils.js"
+import { handleZodError, handleInvalidId, isValidUUID, handleNotFound, normalizeString } from "../Utils.js"
 
 export class CustomerController {
   constructor({customerModel}){
@@ -11,10 +11,18 @@ export class CustomerController {
     }
     getById = async (req, res) => {
       const { id } = req.params
-      if (!isValidUUID(id)) return handleInvalidId(res,uuid=true)
+      if (!isValidUUID(id)) return handleInvalidId({res,uuid : true})
   
       const customer = await this.customerModel.getById({ id })
-      if (!customer) return handleNotFound(res,"category")
+      if (!customer) return handleNotFound(res,"customer")
+  
+      return res.status(200).json(customer)
+    }
+    getByEmail = async (req,res) => {
+      const { email } = req.params
+  
+      const customer = await this.customerModel.getByEmail({ email })
+      if (!customer) return handleNotFound(res,"customer")
   
       return res.status(200).json(customer)
     }
@@ -29,7 +37,7 @@ export class CustomerController {
     }
     update = async (req, res) => {
       const { id } = req.params
-      if(! isValidUUID(id)) return handleInvalidId(res,uuid=true)
+      if(! isValidUUID(id)) return handleInvalidId({res,uuid : true})
 
       const results = validatePartialCustomer(req.body)
       if (!results.success || Object.keys(results.data).length === 0) handleZodError(results,res)
@@ -41,7 +49,7 @@ export class CustomerController {
     }
     delete = async (req, res) => {
       const { id } = req.params
-      if ( ! isValidUUID(id)) return handleInvalidId(res,uuid=true)
+      if ( ! isValidUUID(id)) return handleInvalidId({res,uuid : true})
       
       const result = await this.customerModel.delete({id})
       if(! result) return res.status(400).json({error : "Error deleting customer"})

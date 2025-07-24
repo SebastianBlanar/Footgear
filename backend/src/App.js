@@ -21,7 +21,7 @@ export const createApp = ({ productsModel,brandModel,categoryModel,stockModel,or
   app.use("/stocks",createStockRouter({ stockModel }))
   app.use("/orders",createOrderRouter({ orderModel }))
   app.use("/customers",createCustomerRouter({ customerModel }))
-  app.use("/order_item",createOrderItemRouter({ orderItemModel }))
+  app.use("/order_items",createOrderItemRouter({ orderItemModel }))
 
   app.get('/',(req,res)=>{res.send('Home Page')})
   

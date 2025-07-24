@@ -11,7 +11,7 @@ export class StockController {
   }
   getById = async (req,res) => {
     const { id } = req.params
-    if(! validateNumber(id)) return handleInvalidId(res)
+    if(! validateNumber(id)) return handleInvalidId({res})
     
     const stock = await this.stockModel.getById({id})
     if(!stock) return handleNotFound(res,"Stock")
@@ -21,7 +21,7 @@ export class StockController {
   }
   getByProductId= async (req,res) => {
     const { id } = req.params
-    if(! isValidUUID(id)) return handleInvalidId(res,uuid=true)
+    if(! isValidUUID(id)) return handleInvalidId({res,uuid : true})
     
     const stocks = await this.stockModel.getByProductId({id})
     if(! stocks) return handleNotFound(res,"Stock")
@@ -39,7 +39,7 @@ export class StockController {
   } 
   update = async (req,res) => {
     const { id } = req.params
-    if(! validateNumber(id) ) return handleInvalidId(res)
+    if(! validateNumber(id) ) return handleInvalidId({res})
 
     const results = validatePartialStock(req.body)
     if (!results.success || Object.keys(results.data).length === 0) handleZodError(results,res)
@@ -51,7 +51,7 @@ export class StockController {
   }
   delete = async (req,res) => {
     const { id } = req.params
-    if( ! validateNumber(id) ) handleInvalidId(res)
+    if( ! validateNumber(id) ) handleInvalidId({res})
     
     const deletedStock = await this.stockModel.delete({id})
     if(! deletedStock) return res.status(400).json({error : "Error deleting stock"})

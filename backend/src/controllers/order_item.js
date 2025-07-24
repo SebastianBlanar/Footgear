@@ -2,7 +2,7 @@ import { validateOrderItems, validatePartialOrderItems } from "../schemas/orderI
 import { handleZodError, handleInvalidId, isValidUUID, handleNotFound } from "../Utils.js"
 
 export class OrderItemController {
-  constructor(orderItemModel){
+  constructor({ orderItemModel }){
     this.orderItemModel = orderItemModel
   }
   getAll = async (req,res) => {
@@ -11,13 +11,20 @@ export class OrderItemController {
   }
   getById = async (req,res) => {
     const { id } = req.params
-    if(! isValidUUID(id)) return handleInvalidId(res,uuid=true)
-
+    if(! isValidUUID(id)) return handleInvalidId({res,uuid : true})
+ 
     const orderItem = await this.orderItemModel.getById({id})
     if(! orderItem) return handleNotFound(res,"Order item")
     
     return res.status(200).json(orderItem)
     }
+  getByOrderId = async (req,res) => {
+    const { id } = req.params
+    if(! isValidUUID(id)) return handleInvalidId({res,uuid : true})
+
+    const orderItems = await this.orderItemModel.getByOrderId({id})
+    return res.status(200).json(orderItems)
+  }
   create = async (req,res) => {
     const results = validateOrderItems(req.body)
     if(! results.success) handleZodError(results,res)
@@ -29,7 +36,7 @@ export class OrderItemController {
   }
   update = async (req,res) => {
     const { id } = req.params
-    if(! isValidUUID(id)) return handleInvalidId(res,uuid=true)
+    if(! isValidUUID(id)) return handleInvalidId({res,uuid : true})
     
     const results = validatePartialOrderItems(req.body)
     if (!results.success || Object.keys(results.data).length === 0) handleZodError(results,res)
@@ -41,7 +48,7 @@ export class OrderItemController {
   }
   delete = async (req,res) => {
     const {id} = req.params
-    if(! isValidUUID(id)) return handleInvalidId(res,uuid=true)
+    if(! isValidUUID(id)) return handleInvalidId({res,uuid : true})
     
     const deletedOrderItem = await this.orderItemModel.delete({id})
     if(!deletedOrderItem) return res.status(400).json({error : "Error deleting order item"})

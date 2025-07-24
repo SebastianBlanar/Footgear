@@ -9,21 +9,21 @@ export function CartProvider({ children }) {
 
   useEffect(() => {
     const stored = localStorage.setItem("cart", JSON.stringify(cartItems));
-      console.log( Array.isArray(stored) ? stored : []);
+    Array.isArray(stored) ? stored : []
   }, [cartItems]);
 
   function isInCart(id) {
     return cartItems.some((i) => i.id == id);
   }
 
-  function addToCart(item,size,quantity) {
+  function addToCart(item,size,quantity,stockId) {
     if(isInCart(item.id)){
-        updateQuantity(item.id,quantity,size)
+        updateQuantity(item.id,quantity,size,stockId)
         return
       }
-      const product = { 
+    const product = { 
       ...item,
-      selected : [{size : size, quantity : quantity}]
+      selected : [{size : size, quantity : quantity,stock_id : stockId}]
     }
     setCartItems(prev => [...prev,product]);
     }
@@ -42,25 +42,22 @@ function removeFromCart(id, size) {
     });
   });
 }
-function updateQuantity(id, quantity, size) {
-  if (isInCart(id)) {
-    const newCart = cartItems.map((item) => {
-      if (item.id === id) {
-        const existingSize = item.selected.find((s) => s.size === size);
-        let newSelected;
-        if (existingSize) {
-          newSelected = item.selected.map((s) =>
+function updateQuantity(id, quantity, size, stockId) {
+  if (!isInCart(id)) return;
+
+  setCartItems((prevItems) =>
+    prevItems.map((item) => {
+      if (item.id !== id) return item;
+
+      const existing = item.selected.find((s) => s.size === size);
+      const selected = existing
+        ? item.selected.map((s) =>
             s.size === size ? { ...s, quantity } : s
-          );
-        } else {
-          newSelected = [...item.selected, { size, quantity }];
-        }
-        return { ...item, selected: newSelected };
-      }
-      return item;
-    });
-    setCartItems(newCart);
-  }
+          )
+        : [...item.selected, { size, quantity, stock_id: stockId }];
+      return { ...item, selected };
+    })
+  );
 }
 
   const clearCart = () => {

@@ -1,4 +1,5 @@
 import { validateOrder, validatePartialOrder } from "../schemas/Order.js"
+import { validatePurchase } from "../schemas/purchase.js"
 import { handleZodError, handleInvalidId, isValidUUID, handleNotFound } from "../Utils.js"
 
 export class OrderController {
@@ -11,7 +12,7 @@ export class OrderController {
   }
   getById = async (req, res) => {
     const { id } = req.params
-    if (!isValidUUID(id)) return handleInvalidId(res,uuid=true)
+    if (!isValidUUID(id)) return handleInvalidId({res,uuid : true})
 
     const order = await this.orderModel.getById({ id })
     if (!order) return handleNotFound(res,"Order")
@@ -29,7 +30,7 @@ export class OrderController {
   }
   update = async (req, res) => {
     const { id } = req.params
-    if (!isValidUUID(id)) return handleInvalidId(res,uuid=true)
+    if (!isValidUUID(id)) return handleInvalidId({res,uuid : true})
 
     const results = validatePartialOrder(req.body)
     if (!results.success || Object.keys(results.data).length === 0) handleZodError(results,res)
@@ -37,9 +38,16 @@ export class OrderController {
     if (!updatedOrder) return res.status(400).json({ error: "Error updating Order" })
     return res.status(200).json(updatedOrder)
   }
+  processPurchase = async(req,res) => { 
+    const results = validatePurchase(req.body)
+    if(! results.success) handleZodError(results,res)
+    const processPurchase = await this.orderModel.processPurchase({input : results.data})
+    if(! processPurchase) return res.status(400).json({error : "Error processing purchase"})
+    return res.status(200).json(processPurchase)
+  }
   delete = async (req, res) => {
     const { id } = req.params
-    if (!isValidUUID(id)) return handleInvalidId(res,uuid=true)
+    if (!isValidUUID(id)) return handleInvalidId({res,uuid : true})
 
     const result = await this.orderModel.delete({ id })
     if (!result) return res.status(400).json({ error: "Error deleting Order" })

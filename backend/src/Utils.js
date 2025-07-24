@@ -14,7 +14,13 @@ export function resolvePath(metaUrl, relativePath) {
 // Validations
 export const isValidUUID = (uuid) => /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(uuid)
 
-
+export const validateNumber = (number) => {
+  const isInt = Number.isInteger(Number(number)) 
+    if (typeof number === 'string') {
+    return  isInt && number.trim() !== '';
+  }
+  return isInt && typeof number === 'number';
+}
 export function normalizeString(str) {
   if (typeof str !== 'string') return false
 
@@ -29,7 +35,7 @@ export function normalizeString(str) {
 export const handleZodError = (result, res) => {
   return res.status(400).json({ message: JSON.parse(result.error.message) })
 }
-export const handleInvalidId = (res,uuid=false) => res.status(400).json({ error: `Id must be a numeric ${uuid ? "uuid" : ""}value` })
+export const handleInvalidId = ({res,uuid=false}) => res.status(400).json({ error: `Id must be a numeric ${uuid ? "uuid " : ""}value` })
 
 
 export const handleNotFound = (res, resource = 'Resource') => {
